@@ -1,0 +1,13 @@
+{
+  "name": "otm",
+  "description": "OTM theme",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Florin Buga"
+    }
+  ],
+  "dependencies": {
+    "jquery-selectric": ">= 1.9.6"
+  }
+}

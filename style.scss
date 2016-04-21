@@ -1,0 +1,313 @@
+/*
+ Theme Name:   OTM Networks
+ Description:  Twenty Twelve Child Theme
+ Author:       Florin Buga
+ Template:     twentytwelve
+ Version:      1.0.0
+ Text Domain:  otm
+*/
+
+$text-color: #444;
+$blue: #103b8c;
+
+/* Make the font size bigger */
+html {
+	font-size: 100%;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+a,
+.entry-content a,
+.widget-area .widget a {
+	color: $blue;
+	&:visited {
+		color: $blue;
+		//color: lighten($blue, 10);
+	}
+}
+
+.widget-area .textwidget ul {
+	list-style: disc inside;
+	li {
+		margin-left: 0;
+	}
+}
+
+.site-header {
+	// Site title
+	h1 {
+		clear: none;
+		font-family: Arial Black;
+		letter-spacing: -5px;
+		font-weight: bold;
+		font-size: 43px;
+
+		a {
+			color: #FE3409;
+			&:hover {
+				color: lighten(#FE3409, 10);
+			}
+		}
+	}
+
+	// Tagline
+	h2 {
+		margin-top: -20px;
+		color: $blue;
+	}
+}
+
+.entry-content {
+	table {
+		width: auto;
+		color: inherit;
+		border-bottom: none;
+
+		th {
+			border-bottom: 1px solid gray;
+			color: $text-color;
+		}
+		td {
+			border: none;
+			padding: 3px 30px 3px 0;
+		}
+	}
+}
+
+/* Only display the banner on the home page @todo do it from code */
+img.header-image {
+	display: none;
+}
+.home img.header-image {
+	display: block;
+}
+
+/* Hide the widget area on the Meetings and Members pages */
+.page-id-9 #secondary,
+.page-id-15 #secondary {
+	display: none;
+}
+.page-id-9 #primary,
+.page-id-15 #primary {
+	width: 100%;
+}
+
+.site-content article {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+
+/*** CLEANUP ***/
+
+/* Hide the "Edit" link at the bottom of articles & pages */
+.entry-meta .edit-link {
+	display: none;
+}
+
+
+/*** WIDGETS ***/
+.widget-area .widget h3 {
+	margin: 0 0 .5rem 0;
+	font-size: 18px;
+}
+
+
+/*** LOGIN FORM ***/
+
+#user {
+	text-align: center;
+	@media screen and (min-width: 600px) {
+		float: right;
+		margin-top: 20px;
+		margin-right: 5px;
+	}
+
+	#loginform p {
+		display: inline-block;
+
+		/* Add icons */
+		&.login-password::before,
+		&.login-username::before {
+			font-family: "dashicons";
+			font-size: 23px;
+			vertical-align: middle;
+			margin-right: -5px;
+		}
+		&.login-username::before {
+			content: "\f110";
+		}
+		&.login-password::before {
+			content: "\f160";
+		}
+
+		label {
+			display: none;
+		}
+	}
+
+	.user-links {
+		font-size: 90%;
+
+		a {
+			text-decoration: none;
+		}
+
+		.profile {
+			margin-right: 4px;
+		}
+		.profile::before,
+		.logout::before {
+			font-family: "dashicons";
+			color: mix($blue, gray, 25%);
+			font-size: 17px;
+			margin-right: 1px;
+			position: relative;
+			top: 3px;
+		}
+		.profile::before {
+			content: "\f110";
+		}
+		.logout::before {
+			content: "\f160";
+		}
+	}
+}
+
+
+/*** DOCUMENTS ARCHIVE ***/
+
+.post-type-archive-document {
+	.documents-filter {
+		margin-bottom: 1em;
+
+		@media screen and (min-width: 75rem) {
+			.selectric-wrapper {
+				display: inline-block;
+				width: 200px;
+				&:first-of-type {
+					width: 300px;
+				}
+			}
+		}
+
+		.selectric {
+			border: 1px solid #988;
+			background: #f5f5f5;
+			position: relative;
+			border-radius: 2px;
+
+			.label {
+				padding-left: 10px;
+			}
+		}
+	}
+
+	.documents-list {
+		min-height: 300px;
+
+		.document {
+			border-bottom: none;
+			margin: .3em 0;
+			padding-bottom: 0;
+
+			display: none;
+
+
+			.document-title {
+				font-size: 17px;
+				font-weight: normal;
+				margin-bottom: 2px;
+
+				a {
+					text-decoration: none;
+					color: $text-color;
+					&:hover {
+						color: black;
+					}
+
+					/* Add icons */
+					&::before {
+						font-family: "dashicons";
+						content: "\f497";
+						font-size: 30px;
+						position: relative;
+						top: 16px;
+						right: 5px;
+					}
+					&:hover::before {
+						content: "\f316";
+						top: 18px;
+					}
+				}
+			}
+
+			.document-meta {
+				color: gray;
+				font-size: 14px;
+
+				.presenter::before,
+				.company::before {
+					font-family: "dashicons";
+					position: relative;
+					top: 2px;
+					right: 1px;
+				}
+				.presenter::before {
+					margin-left: 27px;
+					content: "\f338";
+				}
+				.company::before {
+					margin-left: 3px;
+					content: "\f227";
+				}
+			}
+		}
+	}
+}
+
+
+/*** FOOTER ***/
+#colophon {
+	margin-top: 2rem;
+	padding: 0;
+
+	article {
+		margin: 2rem 0;
+
+		header {
+			margin: 0 0 .5rem 0;
+		}
+
+		@media screen and (min-width: 600px) {
+			&.contact {
+				float: left;
+				width: 23.041666667%;
+				margin-right: 5%;
+			}
+			&.other-networks {
+				float: left;
+				width: 100% - 26.041666667% - 23.041666667% - 9.9999%;
+				margin-right: 5%;
+			}
+			&.managed-by {
+				float: right;
+				width: 26.041666667%;
+			}
+		}
+	}
+
+	.site-info {
+		clear: both;
+		border-top: 1px solid #ededed;
+		padding: 1em 0;
+		text-align: center;
+		color: gray;
+		font-size: small;
+	}
+
+}

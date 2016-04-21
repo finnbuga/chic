@@ -128,10 +128,10 @@ img.header-image {
 .post-type-archive-document .documents-filter {
   margin-bottom: 1em; }
   @media screen and (min-width: 75rem) {
-    .post-type-archive-document .documents-filter .selectricWrapper {
+    .post-type-archive-document .documents-filter .selectric-wrapper {
       display: inline-block;
       width: 200px; }
-      .post-type-archive-document .documents-filter .selectricWrapper:first-of-type {
+      .post-type-archive-document .documents-filter .selectric-wrapper:first-of-type {
         width: 300px; } }
   .post-type-archive-document .documents-filter .selectric {
     border: 1px solid #988;
@@ -202,9 +202,7 @@ img.header-image {
         margin-right: 5%; }
       #colophon article.managed-by {
         float: right;
-        width: 26.041666667%; }
-      #colophon article:last-of-type {
-        padding-right: 0; } }
+        width: 26.041666667%; } }
   #colophon .site-info {
     clear: both;
     border-top: 1px solid #ededed;
