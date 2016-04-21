@@ -1,0 +1,231 @@
+/**
+ * Cleanup the admin interface
+ */
+
+/*** ADMIN MENU ***/
+
+/* Hide Admin Menu */
+#adminmenumain {
+	display: none;
+}
+#wpcontent, #wpfooter {
+	margin-left: 0;
+}
+
+/*** TOOLBAR ***/
+
+/* Hide all menu items except for some */
+#wpadminbar li {
+	display: none;
+}
+#wpadminbar li.editor {
+	display: block;
+}
+
+/* Add icons */
+#wpadminbar li#wp-admin-bar-home a::before,
+#wpadminbar li#wp-admin-bar-view a::before {
+	content: "\f319";
+	top: 2px;
+}
+#wpadminbar li#wp-admin-bar-users a::before {
+	content: "\f338";
+	top: 2px;
+}
+#wpadminbar li#wp-admin-bar-edit_documents a::before {
+	content: "\f464";
+	top: 2px;
+}
+#wpadminbar li#wp-admin-bar-view_documents a::before {
+	content: "\f497";
+	top: 2px;
+}
+
+/*** GENERAL ***/
+
+/* Hide meta links (Options, Help) */
+#screen-meta-links {
+	display: none;
+}
+
+/* Hide footer */
+#wpfooter {
+	display: none;
+}
+#wpbody-content {
+	padding-bottom: 0;
+}
+
+/*** POSTS & USERS LISTS ***/
+
+/* Add icons next to the post name on the All Posts page */
+/* Add icons next to the user name on the Users page */
+table.posts .row-title::before,
+table.users .column-username strong::before {
+	vertical-align: middle;
+	font-family: "dashicons";
+	font-size: 32px;
+	color: #A8A8A8;
+	padding-right: .3rem;
+}
+table.posts .row-title::before {
+	content: "\f497";
+}
+table.posts .locked-info {
+	padding-left: 7px;
+}
+table.users .column-username strong::before {
+	content: "\f338";
+}
+table.users td {
+	vertical-align: middle;
+}
+table.users .avatar {
+	display: none;
+}
+
+/*** POSTS LIST ***/
+
+/* Hide stuff */
+.edit-php .subsubsub,        /* Role filters */
+.edit-php .bulkactions,      /* Bulk Actions */
+.edit-php #filter-by-date,   /* Filter by Date */
+.edit-php .wp-list-table th, /* Table headers */
+.edit-php .check-column,     /* Checkboxes */
+.edit-php .row-actions,      /* Row actions */
+.edit-php .column-comments { /* Comments column */
+	display: none;
+}
+
+/*** DOCUMENTS LIST ***/
+.edit-php.post-type-document table.wp-list-table.fixed {
+	table-layout: auto;
+}
+
+/*** USERS LIST ***/
+
+/* Hide stuff */
+.users-php .subsubsub,        /* Role filters */
+.users-php .actions,          /* Actions */
+.users-php .wp-list-table th, /* Table headers */
+.users-php .check-column,     /* Checkboxes */
+.users-php .column-posts,     /* Posts count */
+.users-php .row-actions {     /* Row actions */
+	display: none;
+}
+
+/*** SINGLE USER PAGE ***/
+
+/* Hide fields */
+#your-profile h2,
+#your-profile tr.user-rich-editing-wrap,
+#your-profile tr.user-admin-color-wrap,
+#your-profile tr.user-comment-shortcuts-wrap,
+#your-profile tr.user-admin-bar-front-wrap,
+#your-profile tr.user-display-name-wrap,
+#your-profile tr.user-url-wrap,
+#your-profile tr.user-description-wrap,
+#your-profile tr.user-profile-picture,
+#your-profile tr.user-sessions-wrap {
+	display: none;
+}
+
+/*** SINGLE POST PAGE ***/
+
+/* Hide Add New */
+.post-php .page-title-action {
+	display: none;
+}
+
+/* Hide slug */
+#edit-slug-box {
+	display: none !important;
+}
+
+/* Hide publishing options */
+.post-php form#post #submitdiv #minor-publishing,
+.post-new-php form#post #submitdiv #minor-publishing {
+	display: none;
+}
+
+/* Hide taxonomy meta box elements */
+#eventbox #event-tabs,       /* Top Tabs */
+#eventbox #newevent_parent { /* Parent */
+	display: none;
+}
+#eventbox .categorydiv div.tabs-panel {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+}
+#eventbox .categorydiv div.tabs-panel #eventchecklist {
+	margin: 0;
+}
+
+#companydiv #company-tabs,       /* Top Tabs */
+#companydiv #newcompany_parent { /* Parent */
+	display: none;
+}
+#companydiv .categorydiv div.tabs-panel {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+}
+#companydiv .categorydiv div.tabs-panel #companychecklist {
+	margin: 0;
+}
+
+#presenterdiv #presenter-tabs,       /* Top Tabs */
+#presenterdiv #newpresenter_parent { /* Parent */
+	display: none;
+}
+#presenterdiv .categorydiv div.tabs-panel {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+}
+#presenterdiv .categorydiv div.tabs-panel #presenterchecklist {
+	margin: 0;
+}
+
+/* Style Attachments plugin meta box */
+.attachments-parent-container .attachments-handle {
+	display: none;
+}
+.attachments-parent-container .attachments-attachments {
+	min-height: 30px;
+}
+.attachments-parent-container .attachments-container {
+	padding: 0;
+}
+.attachments-parent-container .attachments-attachment,
+.attachments-parent-container .attachments-attachment:last-of-type {
+	margin: 0;
+	padding: 0;
+}
+.attachments-parent-container .attachments-attachment .attachment-meta,
+.attachments-parent-container .attachments-attachment:first-of-type .attachment-meta {
+	margin: 0;
+	position: static;
+}
+.attachments-parent-container .attachments-attachment .attachment-meta {
+	width: auto;
+	background: transparent;
+	border: none;
+}
+.attachments-parent-container .attachments-attachment .attachment-meta .attachment-thumbnail {
+	width: auto;
+	margin-right: 1.2em;
+}
+.attachments-parent-container .attachments-attachment .attachment-meta .attachment-details {
+	width: auto;
+	float: none;
+}
+.attachments-parent-container .attachment-details .delete-attachment {
+	float: left;
+	padding-left: 1em;
+}
+.attachments-parent-container .attachment-info .filename {
+	margin: 12px 0 4px;
+	font-weight: normal;
+}
