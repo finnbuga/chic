@@ -14,11 +14,11 @@
 
 /*** TOOLBAR ***/
 
-/* Hide all menu items except for some */
+/* Hide all menu items except for manager links */
 #wpadminbar li {
 	display: none;
 }
-#wpadminbar li.editor {
+#wpadminbar li.manager {
 	display: block;
 }
 
@@ -56,61 +56,12 @@
 	padding-bottom: 0;
 }
 
-/*** POSTS & USERS LISTS ***/
-
-/* Add icons next to the post name on the All Posts page */
-/* Add icons next to the user name on the Users page */
-table.posts .row-title::before,
-table.users .column-username strong::before {
-	vertical-align: middle;
-	font-family: "dashicons";
-	font-size: 32px;
-	color: #A8A8A8;
-	padding-right: .3rem;
-}
-table.posts .row-title::before {
-	content: "\f497";
-}
-table.posts .locked-info {
-	padding-left: 7px;
-}
-table.users .column-username strong::before {
-	content: "\f338";
-}
-table.users td {
-	vertical-align: middle;
-}
-table.users .avatar {
-	display: none;
-}
-
-/*** POSTS LIST ***/
-
-/* Hide stuff */
-.edit-php .subsubsub,        /* Role filters */
-.edit-php .bulkactions,      /* Bulk Actions */
-.edit-php #filter-by-date,   /* Filter by Date */
-.edit-php .wp-list-table th, /* Table headers */
-.edit-php .check-column,     /* Checkboxes */
-.edit-php .row-actions,      /* Row actions */
-.edit-php .column-comments { /* Comments column */
-	display: none;
-}
-
-/*** DOCUMENTS LIST ***/
-.edit-php.post-type-document table.wp-list-table.fixed {
-	table-layout: auto;
-}
-
 /*** USERS LIST ***/
 
 /* Hide stuff */
 .users-php .subsubsub,        /* Role filters */
 .users-php .actions,          /* Actions */
-.users-php .wp-list-table th, /* Table headers */
-.users-php .check-column,     /* Checkboxes */
-.users-php .column-posts,     /* Posts count */
-.users-php .row-actions {     /* Row actions */
+.users-php .check-column {    /* Row actions */
 	display: none;
 }
 
@@ -130,7 +81,22 @@ table.users .avatar {
 	display: none;
 }
 
-/*** SINGLE POST PAGE ***/
+/*** DOCUMENTS LIST ***/
+
+/* Hide stuff */
+.edit-php .subsubsub,        /* Role filters */
+.edit-php .bulkactions,      /* Bulk Actions */
+.edit-php #filter-by-date,   /* Filter by Date */
+.edit-php .check-column,     /* Checkboxes */
+.edit-php .row-actions {     /* Row actions */
+	display: none;
+}
+
+.edit-php.post-type-document table.wp-list-table.fixed {
+	table-layout: auto;
+}
+
+/*** SINGLE DOCUMENT PAGE ***/
 
 /* Hide Add New */
 .post-php .page-title-action {
