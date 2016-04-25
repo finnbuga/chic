@@ -20,6 +20,25 @@ function otm_admin_css() {
 }
 
 /**
+ * Cleanup roles list
+ */
+add_filter( 'editable_roles', 'otm_cleanup_roles_list' );
+function otm_cleanup_roles_list( $all_roles ) {
+	if ( current_user_can( 'manager' ) && ! current_user_can( 'administrator' ) ) {
+		unset($all_roles['administrator']);
+		unset($all_roles['editor']);
+		unset($all_roles['contributor']);
+		unset($all_roles['author']);
+		unset($all_roles['subscriber']);
+
+		$member = $all_roles['member'];
+		unset($all_roles['member']);
+		$all_roles['member'] = $member;
+	}
+	return $all_roles;
+}
+
+/**
  * Edit toolbar items
  */
 add_action( 'admin_bar_menu', 'otm_edit_toolbar', 100 );
