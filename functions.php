@@ -16,11 +16,11 @@ function otm_enqueue_styles_and_scripts() {
 }
 
 /**
- * Disable admin bar for subscribers
+ * Disable admin bar for non-managers
  */
 add_filter( 'show_admin_bar', 'otm_disable_admin_bar_for_subscribers' );
 function otm_disable_admin_bar_for_subscribers() {
-	return current_user_can( 'editor' ) ? true : false;
+	return current_user_can( 'manager' ) ? true : false;
 }
 
 /**

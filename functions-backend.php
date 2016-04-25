@@ -1,22 +1,14 @@
 <?php
 
 /**
- * Check if current user is editor
- */
-function otm_is_current_user_editor() {
-	return current_user_can( 'editor' ) && ! current_user_can( 'administrator' ) ? true : false;
-}
-
-/**
  * Add admin stylesheet
  */
 add_action( 'admin_enqueue_scripts', 'otm_admin_css' );
 add_action( 'wp_enqueue_scripts', 'otm_admin_css' );
 function otm_admin_css() {
-	if ( current_user_can( 'administrator' ) ) {
-		return;
+	if ( ! current_user_can( 'administrator' ) ) {
+		wp_enqueue_style( 'otm-admin', get_stylesheet_directory_uri() . '/admin.css' );
 	}
-	wp_enqueue_style( 'otm-admin', get_stylesheet_directory_uri() . '/admin.css' );
 }
 
 /**
@@ -52,10 +44,10 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 		'id'    => 'home',
 		'title' => 'Home',
 		'href'  => get_home_url(),
-		'meta'  => array( 'class' => 'editor' ),
+		'meta'  => array( 'class' => 'manager' ),
 	) );
 
-	if (! otm_is_current_user_editor() ) {
+	if ( ! current_user_can( 'manager' ) ) {
 		return;
 	}
 
@@ -64,20 +56,20 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 		'id'    => 'users',
 		'title' => 'Users',
 		'href'  => admin_url( 'users.php' ),
-		'meta'  => array( 'class' => 'editor' ),
+		'meta'  => array( 'class' => 'manager' ),
 	) );
 
 	// Reorder 'Edit' link at the end
 	if ( $edit = $admin_bar->get_node( 'edit' ) ) {
 		$admin_bar->remove_node( 'edit' );
-		$edit->meta = array( 'class' => 'editor' );
+		$edit->meta = array( 'class' => 'manager' );
 		$admin_bar->add_menu( $edit );
 	}
 
 	// Reorder 'View' link at the end
 	if ( $view = $admin_bar->get_node( 'view' ) ) {
 		$admin_bar->remove_node( 'view' );
-		$view->meta = array( 'class' => 'editor' );
+		$view->meta = array( 'class' => 'manager' );
 		$admin_bar->add_menu( $view );
 	}
 
@@ -88,7 +80,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 			'id'    => 'edit_documents',
 			'title' => 'Edit Documents',
 			'href'  => admin_url( 'edit.php?post_type=document' ),
-			'meta'  => array( 'class' => 'editor' ),
+			'meta'  => array( 'class' => 'manager' ),
 		) );
 	}
 
@@ -98,7 +90,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 			'id'    => 'view_documents',
 			'title' => 'View Documents',
 			'href'  => home_url( '/documents/' ),
-			'meta'  => array( 'class' => 'editor' ),
+			'meta'  => array( 'class' => 'manager' ),
 		) );
 
 		// Remove 'View Document' link on the Edit Document page
@@ -113,12 +105,10 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
  */
 add_filter( 'default_hidden_meta_boxes', 'otm_set_default_hidden_meta_boxes', 10, 2 );
 function otm_set_default_hidden_meta_boxes( $hidden, $screen ) {
-	if (! otm_is_current_user_editor() ) {
-		return array();
+	if ( current_user_can( 'manager' ) && ! current_user_can( 'administrator' ) ) {
+		$hidden = array_unique( array_merge( $hidden, array( 'tagsdiv-post_tag', 'tagsdiv', 'postimagediv', 'formatdiv', 'pageparentdiv', '') ) );
 	}
-
-	$hide = array( 'tagsdiv-post_tag', 'tagsdiv', 'postimagediv', 'formatdiv', 'pageparentdiv', '');
-	return array_unique(array_merge($hidden, $hide));
+	return $hidden;
 }
 
 /**
@@ -126,19 +116,8 @@ function otm_set_default_hidden_meta_boxes( $hidden, $screen ) {
  */
 add_filter( 'default_hidden_columns', 'otm_set_default_hidden_columns', 10, 2 );
 function otm_set_default_hidden_columns( $hidden, $screen ) {
-	if (! otm_is_current_user_editor() ) {
-		return array();
+	if ( current_user_can( 'manager' ) && ! current_user_can( 'administrator' ) ) {
+		$hidden = array_unique( array_merge( $hidden, array( 'author', 'tags', 'comments', 'date', 'posts' ) ) );
 	}
-
-	$hide = array( 'author', 'tags', 'comments', 'date', 'posts' );
-	return array_unique( array_merge( $hidden, $hide ) );
-}
-
-/**
- * Allow editors to manage network users
- */
-add_action( 'admin_init', 'otm_allow_editors_to_manage_network_users');
-function otm_allow_editors_to_manage_network_users() {
-	$role = get_role( 'editor' );
-	$role->add_cap( 'manage_network_users' );
+	return $hidden;
 }
