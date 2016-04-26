@@ -1,0 +1,219 @@
+/**
+ * Cleanup the admin interface
+ */
+
+/*** ADMIN MENU ***/
+
+/* Hide Admin Menu */
+#adminmenumain {
+  display: none;
+}
+#wpcontent, #wpfooter {
+  margin-left: 0;
+}
+
+/*** TOOLBAR ***/
+
+/* Hide all menu items except for manager links */
+#wpadminbar li {
+  display: none;
+  &.manager {
+    display: block;
+  }
+}
+
+/* Add icons */
+#wpadminbar li {
+  &#wp-admin-bar-home a::before,
+  &#wp-admin-bar-view a::before {
+    content: "\f319";
+    top: 2px;
+  }
+  &#wp-admin-bar-users a::before {
+    content: "\f338";
+    top: 2px;
+  }
+  &#wp-admin-bar-edit_documents a::before {
+    content: "\f464";
+    top: 2px;
+  }
+  &#wp-admin-bar-view_documents a::before {
+    content: "\f497";
+    top: 2px;
+  }
+}
+
+/*** GENERAL ***/
+
+/* Hide meta links (Options, Help) */
+#screen-meta-links {
+  display: none;
+}
+
+/* Hide footer */
+#wpfooter {
+  display: none;
+}
+#wpbody-content {
+  padding-bottom: 0;
+}
+
+/*** USERS LIST ***/
+
+/* Hide stuff */
+.users-php {
+  .subsubsub,        /* Role filters */
+  .actions,          /* Actions */
+  .check-column {    /* Row actions */
+    display: none;
+  }
+}
+
+/*** SINGLE USER PAGE ***/
+
+/* Hide fields */
+#your-profile {
+  h2,
+  tr.user-rich-editing-wrap,
+  tr.user-admin-color-wrap,
+  tr.user-comment-shortcuts-wrap,
+  tr.user-admin-bar-front-wrap,
+  tr.user-display-name-wrap,
+  tr.user-url-wrap,
+  tr.user-description-wrap,
+  tr.user-profile-picture,
+  tr.user-sessions-wrap {
+    display: none;
+  }
+}
+
+/*** DOCUMENTS LIST ***/
+
+.edit-php {
+  /* Hide stuff */
+   .subsubsub,        /* Role filters */
+   .bulkactions,      /* Bulk Actions */
+   #filter-by-date,   /* Filter by Date */
+   .check-column,     /* Checkboxes */
+   .row-actions {     /* Row actions */
+    display: none;
+  }
+
+  .post-type-document table.wp-list-table.fixed {
+    table-layout: auto;
+  }
+}
+
+/*** EDIT / NEW DOCUMENT PAGE ***/
+
+.post-new-php,
+.post-php {
+  /* Hide Add New */
+  .page-title-action {
+    display: none;
+  }
+
+  /* Hide slug */
+  #edit-slug-box {
+    display: none !important;
+  }
+
+  /* Hide publishing options */
+  form#post #submitdiv #minor-publishing {
+    display: none;
+  }
+
+  /* Hide taxonomy meta box elements */
+  #eventbox {
+    #event-tabs,       /* Top Tabs */
+    #newevent_parent { /* Parent */
+      display: none;
+    }
+    .categorydiv div.tabs-panel {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+    }
+    .categorydiv div.tabs-panel #eventchecklist {
+      margin: 0;
+    }
+  }
+
+  #companydiv {
+    #company-tabs,       /* Top Tabs */
+    #newcompany_parent { /* Parent */
+      display: none;
+    }
+    .categorydiv div.tabs-panel {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+    }
+    .categorydiv div.tabs-panel #companychecklist {
+      margin: 0;
+    }
+  }
+
+  #presenterdiv {
+    #presenter-tabs,       /* Top Tabs */
+    #newpresenter_parent { /* Parent */
+      display: none;
+    }
+    .categorydiv div.tabs-panel {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+    }
+    .categorydiv div.tabs-panel #presenterchecklist {
+      margin: 0;
+    }
+  }
+
+  /* Style Attachments plugin meta box */
+  .attachments-parent-container {
+    .attachments-handle {
+      display: none;
+    }
+    .attachments-attachments {
+      min-height: 30px;
+    }
+    .attachments-container {
+      padding: 0;
+    }
+    .attachments-attachment {
+      margin: 0;
+      padding: 0;
+      &:last-of-type {
+        margin: 0;
+        padding: 0;
+      }
+      .attachment-meta,
+      &:first-of-type .attachment-meta {
+        margin: 0;
+        position: static;
+      }
+      .attachment-meta {
+        width: auto;
+        background: transparent;
+        border: none;
+
+        .attachment-thumbnail {
+          width: auto;
+          margin-right: 1.2em;
+        }
+        .attachment-details {
+          width: auto;
+          float: none;
+          .filename {
+            margin: 12px 0 4px;
+            font-weight: normal;
+          }
+          .delete-attachment {
+            float: left;
+            padding-left: 1em;
+          }
+        }
+      }
+    }
+  }
+}
