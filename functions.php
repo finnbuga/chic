@@ -24,17 +24,6 @@ function otm_disable_admin_bar_for_subscribers() {
 }
 
 /**
- * Display unlimited number of documents on the Documents archive page
- */
-add_action( 'pre_get_posts', 'otm_unlimited_documents', 1 );
-function otm_unlimited_documents( $query ) {
-	if ( is_post_type_archive( 'document' ) ) {
-		$query->set( 'posts_per_page', -1 );
-		return;
-	}
-}
-
-/**
  * Add PDF filter on the Media page
  */
 add_filter( 'post_mime_types', 'otm_add_pdf_filter' );

@@ -145,8 +145,7 @@ img.header-image {
   .post-type-archive-document .documents-list .document {
     border-bottom: none;
     margin: .3em 0;
-    padding-bottom: 0;
-    display: none; }
+    padding-bottom: 0; }
     .post-type-archive-document .documents-list .document .document-title {
       font-size: 17px;
       font-weight: normal;
