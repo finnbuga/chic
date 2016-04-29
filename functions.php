@@ -33,3 +33,12 @@ function otm_unlimited_documents( $query ) {
 		return;
 	}
 }
+
+/**
+ * Add PDF filter on the Media page
+ */
+add_filter( 'post_mime_types', 'otm_add_pdf_filter' );
+function otm_add_pdf_filter( $post_mime_types ) {
+	$post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
+	return $post_mime_types;
+}
