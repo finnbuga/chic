@@ -73,6 +73,10 @@ img.header-image {
   margin-bottom: 0;
   padding-bottom: 0; }
 
+/* Add more space between pagination links */
+.pagination .page-numbers {
+  padding: 0 .3em; }
+
 /*** CLEANUP ***/
 /* Hide the "Edit" link at the bottom of articles & pages */
 .entry-meta .edit-link {
@@ -143,7 +147,8 @@ img.header-image {
     .post-type-archive-document .documents-filter .selectric .label {
       padding-left: 10px; }
 .post-type-archive-document .documents-list {
-  min-height: 300px; }
+  min-height: 300px;
+  margin-bottom: 20px; }
   .post-type-archive-document .documents-list .document {
     border-bottom: none;
     margin: .3em 0;

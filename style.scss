@@ -101,6 +101,11 @@ img.header-image {
 	padding-bottom: 0;
 }
 
+/* Add more space between pagination links */
+.pagination .page-numbers {
+	padding: 0 .3em;
+}
+
 
 /*** CLEANUP ***/
 
@@ -213,6 +218,7 @@ img.header-image {
 
 	.documents-list {
 		min-height: 300px;
+		margin-bottom: 20px;
 
 		.document {
 			border-bottom: none;
@@ -274,6 +280,7 @@ img.header-image {
 
 
 /*** FOOTER ***/
+
 #colophon {
 	margin-top: 2rem;
 	padding: 0;

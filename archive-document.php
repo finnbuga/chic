@@ -23,6 +23,11 @@
 				?>
 			</div>
 
+			<?php the_posts_pagination( array(
+				'prev_text' => __( 'Previous Documents', 'otm' ),
+				'next_text' => __( 'Next Documents', 'otm' ),
+			) ); ?>
+
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
