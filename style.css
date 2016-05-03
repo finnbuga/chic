@@ -122,7 +122,7 @@ img.header-image {
     #user .user-links .profile::before {
       content: "\f110"; }
     #user .user-links .logout::before {
-      content: "\f160"; }
+      content: "\f310"; }
 
 /*** DOCUMENTS ARCHIVE ***/
 .post-type-archive-document .documents-filter {
@@ -157,7 +157,8 @@ img.header-image {
         color: #444;
         /* Add icons */ }
         .post-type-archive-document .documents-list .document .document-title a:hover {
-          color: black; }
+          color: black;
+          cursor: pointer; }
         .post-type-archive-document .documents-list .document .document-title a::before {
           font-family: "dashicons";
           content: "\f497";

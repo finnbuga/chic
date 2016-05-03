@@ -173,7 +173,7 @@ img.header-image {
 			content: "\f110";
 		}
 		.logout::before {
-			content: "\f160";
+			content: "\f310";
 		}
 	}
 }
@@ -229,6 +229,7 @@ img.header-image {
 					color: $text-color;
 					&:hover {
 						color: black;
+						cursor: pointer;
 					}
 
 					/* Add icons */
