@@ -22,12 +22,3 @@ add_filter( 'show_admin_bar', 'otm_disable_admin_bar_for_subscribers' );
 function otm_disable_admin_bar_for_subscribers() {
 	return current_user_can( 'manager' ) ? true : false;
 }
-
-/**
- * Add PDF filter on the Media page
- */
-add_filter( 'post_mime_types', 'otm_add_pdf_filter' );
-function otm_add_pdf_filter( $post_mime_types ) {
-	$post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
-	return $post_mime_types;
-}

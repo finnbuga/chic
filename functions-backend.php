@@ -121,3 +121,12 @@ function otm_set_default_hidden_columns( $hidden, $screen ) {
 	}
 	return $hidden;
 }
+
+/**
+ * Add PDF filter on the Media page
+ */
+add_filter( 'post_mime_types', 'otm_add_pdf_filter' );
+function otm_add_pdf_filter( $post_mime_types ) {
+	$post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
+	return $post_mime_types;
+}
