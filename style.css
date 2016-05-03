@@ -126,7 +126,9 @@ img.header-image {
     #user .user-links .profile::before {
       content: "\f110"; }
     #user .user-links .logout::before {
-      content: "\f310"; }
+      content: "\f310";
+      font-size: 18px;
+      top: 4px; }
 
 /*** DOCUMENTS ARCHIVE ***/
 .post-type-archive-document .documents-filter {
