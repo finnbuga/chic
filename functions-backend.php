@@ -73,6 +73,11 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 		$admin_bar->add_menu( $view );
 	}
 
+	// Remove 'Edit' link on the Documents archive page
+	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
+		$admin_bar->remove_node( 'edit' );
+	}
+
 	// Add 'Edit Documents' link on the Documents archive page
 	global $pagenow, $typenow;
 	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
