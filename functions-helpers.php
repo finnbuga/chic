@@ -10,7 +10,7 @@ function otm_taxonomy_select( $taxonomy ) {
 	<select name="<?php print $taxonomy->name; ?>" class="filters-select ">
 		<option value="">Filter by <?php print $taxonomy->name; ?></option>
 		<?php foreach ($terms as $term): ?>
-			<option value="<?php print $term->slug; ?>" <?php if ($_GET[$taxonomy->name] == $term->slug) print 'selected="selected"'; ?>><?php print $term->name; ?></option>
+			<option value="<?php print $term->slug; ?>" <?php if (isset($_GET[$taxonomy->name]) && $_GET[$taxonomy->name] == $term->slug) print 'selected="selected"'; ?>><?php print $term->name; ?></option>
 		<?php endforeach; ?>
 	</select>
 	<?php
