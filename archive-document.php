@@ -9,9 +9,10 @@
 				<h1 class="entry-title"><?php _e( 'Documents', 'otm' ); ?></h1>
 			</header>
 
-			<div class="documents-filter">
+			<form class="documents-filter">
 				<?php otm_taxonomies_select( 'document' ); ?>
-			</div>
+				<input type="submit" value="Filter"></input>
+			</form>
 
 			<div class="documents-list">
 				<?php
