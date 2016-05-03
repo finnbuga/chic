@@ -99,7 +99,7 @@
     display: none;
   }
 
-  .post-type-document table.wp-list-table.fixed {
+  &.post-type-document table.wp-list-table.fixed {
     table-layout: auto;
   }
 }

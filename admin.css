@@ -74,7 +74,7 @@
   .edit-php .row-actions {
     /* Row actions */
     display: none; }
-  .edit-php .post-type-document table.wp-list-table.fixed {
+  .edit-php.post-type-document table.wp-list-table.fixed {
     table-layout: auto; }
 
 /*** EDIT / NEW DOCUMENT PAGE ***/
