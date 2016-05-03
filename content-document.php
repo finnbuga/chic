@@ -1,12 +1,12 @@
 <article class="document <?php print implode( ' ', otm_get_all_terms_ids( get_the_ID() )); ?>">
 	<header class="document-header">
-		<h1 class="document-title">
+		<h3 class="document-title">
 			<?php if ( current_user_can( 'read_private_posts' ) ): ?>
 				<a href="<?php print otm_document_get_attachment_url(); ?>"><?php the_title(); ?></a>
 			<?php else: ?>
 				<a onclick="alert('Members only.');"><?php the_title(); ?></a>
 			<?php endif; ?>
-		</h1>
+		</h3>
 	</header>
 
 	<footer class="document-meta">

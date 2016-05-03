@@ -219,18 +219,18 @@ img.header-image {
 	}
 
 	.documents-list {
+		margin: 30px 0 20px;
 		min-height: 300px;
-		margin-bottom: 20px;
 
 		.document {
+			margin: 1.5em 0;
 			border-bottom: none;
-			margin: .3em 0;
 			padding-bottom: 0;
 
 			.document-title {
+				margin-bottom: 2px;
 				font-size: 17px;
 				font-weight: normal;
-				margin-bottom: 2px;
 
 				a {
 					text-decoration: none;
@@ -242,21 +242,22 @@ img.header-image {
 
 					/* Add icons */
 					&::before {
+						margin: 2px 3px 0 -4px;
+						float: left;
+						width: 30px;
+
 						font-family: "dashicons";
 						content: "\f497";
 						font-size: 30px;
-						position: relative;
-						top: 16px;
-						right: 5px;
 					}
 					&:hover::before {
 						content: "\f316";
-						top: 18px;
 					}
 				}
 			}
 
 			.document-meta {
+				margin-left: 30px;
 				color: gray;
 				font-size: 14px;
 
@@ -268,7 +269,6 @@ img.header-image {
 					right: 1px;
 				}
 				.presenter::before {
-					margin-left: 27px;
 					content: "\f338";
 				}
 				.company::before {

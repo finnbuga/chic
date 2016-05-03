@@ -149,16 +149,16 @@ img.header-image {
     .post-type-archive-document .documents-filter .selectric .label {
       padding-left: 10px; }
 .post-type-archive-document .documents-list {
-  min-height: 300px;
-  margin-bottom: 20px; }
+  margin: 30px 0 20px;
+  min-height: 300px; }
   .post-type-archive-document .documents-list .document {
+    margin: 1.5em 0;
     border-bottom: none;
-    margin: .3em 0;
     padding-bottom: 0; }
     .post-type-archive-document .documents-list .document .document-title {
+      margin-bottom: 2px;
       font-size: 17px;
-      font-weight: normal;
-      margin-bottom: 2px; }
+      font-weight: normal; }
       .post-type-archive-document .documents-list .document .document-title a {
         text-decoration: none;
         color: #444;
@@ -167,16 +167,16 @@ img.header-image {
           color: black;
           cursor: pointer; }
         .post-type-archive-document .documents-list .document .document-title a::before {
+          margin: 2px 3px 0 -4px;
+          float: left;
+          width: 30px;
           font-family: "dashicons";
           content: "\f497";
-          font-size: 30px;
-          position: relative;
-          top: 16px;
-          right: 5px; }
+          font-size: 30px; }
         .post-type-archive-document .documents-list .document .document-title a:hover::before {
-          content: "\f316";
-          top: 18px; }
+          content: "\f316"; }
     .post-type-archive-document .documents-list .document .document-meta {
+      margin-left: 30px;
       color: gray;
       font-size: 14px; }
       .post-type-archive-document .documents-list .document .document-meta .presenter::before,
@@ -186,7 +186,6 @@ img.header-image {
         top: 2px;
         right: 1px; }
       .post-type-archive-document .documents-list .document .document-meta .presenter::before {
-        margin-left: 27px;
         content: "\f338"; }
       .post-type-archive-document .documents-list .document .document-meta .company::before {
         margin-left: 3px;
