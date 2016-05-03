@@ -22,3 +22,14 @@ add_filter( 'show_admin_bar', 'otm_disable_admin_bar_for_subscribers' );
 function otm_disable_admin_bar_for_subscribers() {
 	return current_user_can( 'manager' ) ? true : false;
 }
+
+/**
+ * Display 30 documents per page
+ */
+add_action( 'pre_get_posts', 'otm_display_30_documents_per_page', 1 );
+function otm_display_30_documents_per_page( $query ) {
+	if ( is_post_type_archive( 'document' ) ) {
+		$query->set( 'posts_per_page', 30 );
+		return;
+	}
+}
