@@ -127,6 +127,8 @@ img.header-image {
 /*** DOCUMENTS ARCHIVE ***/
 .post-type-archive-document .documents-filter {
   margin-bottom: 1em; }
+  .post-type-archive-document .documents-filter input[type=submit] {
+    display: none; }
   @media screen and (min-width: 75rem) {
     .post-type-archive-document .documents-filter .selectric-wrapper {
       display: inline-block;

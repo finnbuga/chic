@@ -185,6 +185,10 @@ img.header-image {
 	.documents-filter {
 		margin-bottom: 1em;
 
+		input[type=submit] {
+			display: none;
+		}
+
 		@media screen and (min-width: 75rem) {
 			.selectric-wrapper {
 				display: inline-block;
