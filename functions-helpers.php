@@ -8,9 +8,9 @@ function otm_taxonomy_select( $taxonomy ) {
 	$terms = get_terms( array( 'taxonomy' => $taxonomy->name, 'hide_empty' => true, ) );
 	?>
 	<select name="<?php print $taxonomy->name; ?>" class="filters-select ">
-		<option value="none">Filter by <?php print $taxonomy->name; ?></option>
+		<option value="">Filter by <?php print $taxonomy->name; ?></option>
 		<?php foreach ($terms as $term): ?>
-			<option value="<?php print $term->term_id; ?>"><?php print $term->name; ?></option>
+			<option value="<?php print $term->slug; ?>" <?php if ($_GET[$taxonomy->name] == $term->slug) print 'selected="selected"'; ?>><?php print $term->name; ?></option>
 		<?php endforeach; ?>
 	</select>
 	<?php
