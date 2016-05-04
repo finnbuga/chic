@@ -35,6 +35,8 @@ function otm_cleanup_roles_list( $all_roles ) {
  */
 add_action( 'admin_bar_menu', 'otm_edit_toolbar', 100 );
 function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
+	global $pagenow, $typenow;
+	
 	if ( current_user_can( 'administrator' ) ) {
 		return;
 	}
@@ -79,7 +81,6 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Add 'Edit Documents' link on the Documents archive page
-	global $pagenow, $typenow;
 	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
 		$admin_bar->add_menu( array(
 			'id'    => 'edit_documents',
