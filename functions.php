@@ -28,7 +28,9 @@ function otm_disable_admin_bar_for_subscribers() {
  */
 add_action( 'pre_get_posts', 'otm_display_30_documents_per_page', 1 );
 function otm_display_30_documents_per_page( $query ) {
-	if ( is_post_type_archive( 'document' ) ) {
+	global $pagenow;
+
+	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
 		$query->set( 'posts_per_page', 30 );
 		return;
 	}
