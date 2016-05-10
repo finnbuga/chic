@@ -130,42 +130,54 @@ img.header-image {
       font-size: 18px;
       top: 4px; }
 
-/*** DOCUMENTS ARCHIVE ***/
+/*** DOCUMENTS ARCHIVE & SEARCH RESULTS PAGE ***/
+.search .documents-filter,
 .post-type-archive-document .documents-filter {
   margin-bottom: 1em; }
+  .search .documents-filter input[type=submit],
   .post-type-archive-document .documents-filter input[type=submit] {
     display: none; }
   @media screen and (min-width: 75rem) {
+    .search .documents-filter .selectric-wrapper,
     .post-type-archive-document .documents-filter .selectric-wrapper {
       display: inline-block;
       width: 200px; }
+      .search .documents-filter .selectric-wrapper:first-of-type,
       .post-type-archive-document .documents-filter .selectric-wrapper:first-of-type {
         width: 300px; } }
+  .search .documents-filter .selectric,
   .post-type-archive-document .documents-filter .selectric {
     border: 1px solid #988;
     background: #f5f5f5;
     position: relative;
     border-radius: 2px; }
+    .search .documents-filter .selectric .label,
     .post-type-archive-document .documents-filter .selectric .label {
       padding-left: 10px; }
+.search .documents-list,
 .post-type-archive-document .documents-list {
   margin: 30px 0 20px;
   min-height: 300px; }
+  .search .documents-list .document,
   .post-type-archive-document .documents-list .document {
     margin: 1.5em 0;
     border-bottom: none;
     padding-bottom: 0; }
+    .search .documents-list .document .document-title,
     .post-type-archive-document .documents-list .document .document-title {
       margin-bottom: 2px;
       font-size: 17px;
       font-weight: normal; }
+      .search .documents-list .document .document-title a,
       .post-type-archive-document .documents-list .document .document-title a {
         text-decoration: none;
         color: #444;
         /* Add icons */ }
+        .search .documents-list .document .document-title a:hover,
         .post-type-archive-document .documents-list .document .document-title a:hover {
           color: black;
           cursor: pointer; }
+        .search .documents-list .document .document-title a::before,
         .post-type-archive-document .documents-list .document .document-title a::before {
           margin: 2px 3px 0 -4px;
           float: left;
@@ -173,20 +185,26 @@ img.header-image {
           font-family: "dashicons";
           content: "\f497";
           font-size: 30px; }
+        .search .documents-list .document .document-title a:hover::before,
         .post-type-archive-document .documents-list .document .document-title a:hover::before {
           content: "\f316"; }
+    .search .documents-list .document .document-meta,
     .post-type-archive-document .documents-list .document .document-meta {
       margin-left: 30px;
       color: gray;
       font-size: 14px; }
+      .search .documents-list .document .document-meta .presenter::before,
+      .search .documents-list .document .document-meta .company::before,
       .post-type-archive-document .documents-list .document .document-meta .presenter::before,
       .post-type-archive-document .documents-list .document .document-meta .company::before {
         font-family: "dashicons";
         position: relative;
         top: 2px;
         right: 1px; }
+      .search .documents-list .document .document-meta .presenter::before,
       .post-type-archive-document .documents-list .document .document-meta .presenter::before {
         content: "\f338"; }
+      .search .documents-list .document .document-meta .company::before,
       .post-type-archive-document .documents-list .document .document-meta .company::before {
         margin-left: 3px;
         content: "\f227"; }

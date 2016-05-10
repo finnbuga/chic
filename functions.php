@@ -30,8 +30,20 @@ add_action( 'pre_get_posts', 'otm_display_30_documents_per_page', 1 );
 function otm_display_30_documents_per_page( $query ) {
 	global $pagenow;
 
-	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
+	if ( is_post_type_archive('document') && 'edit.php' != $pagenow || is_search()) {
 		$query->set( 'posts_per_page', 30 );
 		return;
 	}
 }
+
+/**
+ * Restrict search to documents
+ */
+add_filter('pre_get_posts','otm_restrict_search_to_documents');
+function otm_restrict_search_to_documents($query) {
+	if ($query->is_search && !is_admin()) {
+		$query->set( 'post_type', array('document') );
+	}
+	return $query;
+}
+

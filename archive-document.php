@@ -3,34 +3,33 @@
 <section id="primary" class="site-content">
 	<div id="content" role="main">
 
-		<?php if ( have_posts() ) : ?>
+		<header class="entry-header">
+			<h1 class="entry-title"><?php _e( 'Documents', 'otm' ); ?></h1>
+		</header>
 
-			<header class="entry-header">
-				<h1 class="entry-title"><?php _e( 'Documents', 'otm' ); ?></h1>
-			</header>
+		<form class="documents-filter" action="/documents">
+			<?php otm_taxonomies_select( 'document' ); ?>
+			<input type="submit" value="Filter">
+		</form>
+		<?php get_search_form(); ?>
 
-			<form class="documents-filter">
-				<?php otm_taxonomies_select( 'document' ); ?>
-				<input type="submit" value="Filter"></input>
-			</form>
-
-			<div class="documents-list">
-				<?php
-				while ( have_posts() ) : 
+		<div class="documents-list">
+			<?php
+			if ( have_posts() ) {
+				while ( have_posts() ) {
 					the_post();
 					get_template_part( 'content', 'document' );
-				endwhile;
-				?>
-			</div>
+				}
+			} else {
+				_e('Nothing found', 'otm');
+			}
 
-			<?php the_posts_pagination( array(
+			the_posts_pagination( array(
 				'prev_text' => __( 'Previous Documents', 'otm' ),
 				'next_text' => __( 'Next Documents', 'otm' ),
-			) ); ?>
-
-		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
+			) );
+			?>
+		</div>
 
 	</div><!-- #content -->
 </section><!-- #primary -->
