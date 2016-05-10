@@ -179,18 +179,18 @@ img.header-image {
           cursor: pointer; }
         .search .documents-list .document .document-title a::before,
         .post-type-archive-document .documents-list .document .document-title a::before {
-          margin: 2px 3px 0 -4px;
+          margin-top: -4px;
           float: left;
-          width: 30px;
+          width: 25px;
           font-family: "dashicons";
           content: "\f497";
-          font-size: 30px; }
+          font-size: 25px; }
         .search .documents-list .document .document-title a:hover::before,
         .post-type-archive-document .documents-list .document .document-title a:hover::before {
           content: "\f316"; }
     .search .documents-list .document .document-meta,
     .post-type-archive-document .documents-list .document .document-meta {
-      margin-left: 30px;
+      margin-left: 25px;
       color: gray;
       font-size: 14px; }
       .search .documents-list .document .document-meta .presenter::before,

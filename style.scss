@@ -243,13 +243,13 @@ img.header-image {
 
 					/* Add icons */
 					&::before {
-						margin: 2px 3px 0 -4px;
+						margin-top: -4px;
 						float: left;
-						width: 30px;
+						width: 25px;
 
 						font-family: "dashicons";
 						content: "\f497";
-						font-size: 30px;
+						font-size: 25px;
 					}
 					&:hover::before {
 						content: "\f316";
@@ -258,7 +258,7 @@ img.header-image {
 			}
 
 			.document-meta {
-				margin-left: 30px;
+				margin-left: 25px;
 				color: gray;
 				font-size: 14px;
 
