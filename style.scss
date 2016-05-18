@@ -77,14 +77,6 @@ a,
 	}
 }
 
-/* Only display the banner on the home page @todo do it from code */
-img.header-image {
-	display: none;
-}
-.home img.header-image {
-	display: block;
-}
-
 .site-content article {
 	border-bottom: none;
 	margin-bottom: 0;
