@@ -264,9 +264,10 @@ article.post-password-required input[type=submit],
 
 			.document-meta {
 				margin-left: 25px;
-				color: gray;
+				color: #888;
 				font-size: 14px;
 
+				.event-date::before,
 				.presenter::before,
 				.company::before {
 					font-family: "dashicons";
@@ -274,7 +275,14 @@ article.post-password-required input[type=submit],
 					top: 2px;
 					right: 1px;
 				}
+				.event-date {
+					font-size: 13px;
+				}
+				.event-date::before {
+					content: "\f469";
+				}
 				.presenter::before {
+					margin-left: 3px;
 					content: "\f338";
 				}
 				.company::before {

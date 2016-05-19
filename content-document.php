@@ -13,12 +13,17 @@
 		<?php
 		$taxonomies = get_object_taxonomies( 'document', 'objects' );
 		foreach ($taxonomies as $taxonomy) {
-			if ($taxonomy->name != 'event') {
-				$term_names = otm_get_terms_names( get_the_ID(), $taxonomy->name );
-				if ($term_names) {
-				?>
+			$term_names = otm_get_terms_names( get_the_ID(), $taxonomy->name );
+			if ($term_names) {
+				if ($taxonomy->name == 'event') {
+					$event_date = substr($term_names[0], 0, 7);
+					?>
+					<span class="event-date"><?php print $event_date; ?></span>
+					<?php
+				} else {
+					?>
 					<span class="<?php print $taxonomy->name; ?>"><?php print implode(', ', $term_names); ?></span>
-				<?php
+					<?php
 				}
 			}
 		}
