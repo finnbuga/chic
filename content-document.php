@@ -15,10 +15,9 @@
 		foreach ($taxonomies as $taxonomy) {
 			if ($taxonomy->name != 'event') {
 				$term_names = otm_get_terms_names( get_the_ID(), $taxonomy->name );
-				$term_ids = otm_get_terms_ids( get_the_ID(), $taxonomy->name );
 				if ($term_names) {
 				?>
-					<span class="<?php print $taxonomy->name . ' ' . implode(' ', $term_ids); ?>"><?php print implode(', ', $term_names); ?></span>
+					<span class="<?php print $taxonomy->name; ?>"><?php print implode(', ', $term_names); ?></span>
 				<?php
 				}
 			}
