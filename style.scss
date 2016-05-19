@@ -77,6 +77,29 @@ a,
 	}
 }
 
+/* Form fields, general styles first */
+input {
+	font-size: 12px;
+	padding: 10px 1.5em 11px;
+	line-height: 1em;
+	border: 1px solid #988;
+}
+
+/* Buttons */
+.menu-toggle,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+article.post-password-required input[type=submit],
+.bypostauthor cite span {
+	font-size: 12px;
+	line-height: 38px;
+	border: 1px solid #988;
+	padding: 0 1.5em;
+	color: #444;
+}
+
+/* Remove bottom padding, border and margin from articles */
 .site-content article {
 	border-bottom: none;
 	margin-bottom: 0;

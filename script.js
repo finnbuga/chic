@@ -15,5 +15,8 @@
         filters.selectric({
             maxHeight: 400
         });
+
+        // Rename 'Search' to 'Search by document name'
+        $('#searchsubmit').val('Search by document name');
     });
 })( jQuery );
