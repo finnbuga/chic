@@ -271,6 +271,13 @@ article.post-password-required input[type=submit],
 				color: #888;
 				font-size: 14px;
 
+				> * {
+					margin-right: .5em;
+				}
+
+				.event-date {
+					font-size: 13px;
+				}
 				.event-date::before,
 				.presenter::before,
 				.company::before {
@@ -278,9 +285,6 @@ article.post-password-required input[type=submit],
 					position: relative;
 					top: 2px;
 					right: 1px;
-				}
-				.event-date {
-					font-size: 13px;
 				}
 				.event-date::before {
 					content: "\f469";

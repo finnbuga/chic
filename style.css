@@ -198,6 +198,12 @@ article.post-password-required input[type=submit],
       margin-left: 25px;
       color: #888;
       font-size: 14px; }
+      .search .documents-list .document .document-meta > *,
+      .post-type-archive-document .documents-list .document .document-meta > * {
+        margin-right: .5em; }
+      .search .documents-list .document .document-meta .event-date,
+      .post-type-archive-document .documents-list .document .document-meta .event-date {
+        font-size: 13px; }
       .search .documents-list .document .document-meta .event-date::before,
       .search .documents-list .document .document-meta .presenter::before,
       .search .documents-list .document .document-meta .company::before,
@@ -208,9 +214,6 @@ article.post-password-required input[type=submit],
         position: relative;
         top: 2px;
         right: 1px; }
-      .search .documents-list .document .document-meta .event-date,
-      .post-type-archive-document .documents-list .document .document-meta .event-date {
-        font-size: 13px; }
       .search .documents-list .document .document-meta .event-date::before,
       .post-type-archive-document .documents-list .document .document-meta .event-date::before {
         content: "\f469"; }
