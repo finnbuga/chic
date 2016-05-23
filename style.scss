@@ -297,29 +297,30 @@ article.post-password-required input[type=submit],
 
 /*** FOOTER ***/
 
-#colophon {
-	margin-top: 2rem;
-	padding: 0;
+footer[role="contentinfo"] {
+	max-width: none;
+	color: gray;
 
 	article {
-		margin: 2rem 0;
+		margin-bottom: 24px;
+		margin-bottom: 1.714285714rem;
 
 		header {
-			margin: 0 0 .5rem 0;
+			margin-bottom: .5rem;
 		}
 
 		@media screen and (min-width: 600px) {
-			&.contact {
+			&:nth-child(1) {
 				float: left;
 				width: 23.041666667%;
 				margin-right: 5%;
 			}
-			&.other-networks {
+			&:nth-child(2) {
 				float: left;
 				width: 100% - 26.041666667% - 23.041666667% - 9.9999%;
 				margin-right: 5%;
 			}
-			&.managed-by {
+			&:nth-child(3) {
 				float: right;
 				width: 26.041666667%;
 			}
@@ -328,10 +329,10 @@ article.post-password-required input[type=submit],
 
 	.site-info {
 		clear: both;
+		padding-top: 24px;
+		padding-top: 1.714285714rem;
 		border-top: 1px solid #ededed;
-		padding: 1em 0;
 		text-align: center;
-		color: gray;
 		font-size: small;
 	}
 
