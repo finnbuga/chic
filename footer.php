@@ -42,12 +42,12 @@
 			</header>
 			<section class="main">
 				<img style="float: right; margin: 0 0 .5rem .5rem;" src="<?php print get_stylesheet_directory_uri(); ?>/otm.png">
-				<p>The PEA is managed by OTM. It was founded in 1989 and has continued to be strongly supported by the industry.</p>
+				<p>This network is managed by OTM. It was founded in 1989 and has continued to be strongly supported by the industry.</p>
 			</section>
 		</article>
 
 		<div class="site-info">
-			<p>Cookies | Terms of use | Copyright © 1989 - 2016 OTM, All rights reserved.</p>
+			<p><a href="/cookies">Cookies</a> | <a href="/terms-of-use">Terms of use</a> | Copyright © <?php echo date("Y"); ?> OTM</p>
 		</div>
 
 	</footer><!-- #colophon -->
