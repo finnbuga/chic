@@ -98,11 +98,17 @@ article.post-password-required input[type=submit],
   @media screen and (min-width: 600px) {
     #user {
       float: right;
-      margin-top: 20px;
+      margin-top: 15px;
       margin-right: 5px; } }
   #user #loginform p {
     display: inline-block;
     /* Add icons */ }
+    #user #loginform p input[type="text"],
+    #user #loginform p input[type="password"] {
+      width: 110px;
+      padding: 8px 1.2em; }
+    #user #loginform p input[type="submit"] {
+      line-height: 33px; }
     #user #loginform p.login-password::before, #user #loginform p.login-username::before {
       font-family: "dashicons";
       font-size: 23px;

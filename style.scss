@@ -137,12 +137,21 @@ article.post-password-required input[type=submit],
 	text-align: center;
 	@media screen and (min-width: 600px) {
 		float: right;
-		margin-top: 20px;
+		margin-top: 15px;
 		margin-right: 5px;
 	}
 
 	#loginform p {
 		display: inline-block;
+
+		input[type="text"],
+		input[type="password"] {
+			width: 110px;
+			padding: 8px 1.2em;
+		}
+		input[type="submit"] {
+			line-height: 33px;
+		}
 
 		/* Add icons */
 		&.login-password::before,
