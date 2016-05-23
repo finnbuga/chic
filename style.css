@@ -6,12 +6,12 @@
  Version:      1.0.0
  Text Domain:  otm
 */
-/* Make the font size bigger */
 html {
   font-size: 100%; }
 
-h2 {
-  font-size: 18px; }
+.site {
+  max-width: 1120px;
+  max-width: 70rem; }
 
 a,
 .entry-content a,
@@ -52,22 +52,27 @@ a,
     border: none;
     padding: 3px 30px 3px 0; }
 
-/* Only display the banner on the home page @todo do it from code */
-img.header-image {
-  display: none; }
+/* Form fields, general styles first */
+input {
+  font-size: 12px;
+  padding: 10px 1.5em 11px;
+  line-height: 1em;
+  border: 1px solid #988; }
 
-.home img.header-image {
-  display: block; }
+/* Buttons */
+.menu-toggle,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+article.post-password-required input[type=submit],
+.bypostauthor cite span {
+  font-size: 12px;
+  line-height: 38px;
+  border: 1px solid #988;
+  padding: 0 1.5em;
+  color: #444; }
 
-/* Hide the widget area on the Meetings and Members pages */
-.page-id-9 #secondary,
-.page-id-15 #secondary {
-  display: none; }
-
-.page-id-9 #primary,
-.page-id-15 #primary {
-  width: 100%; }
-
+/* Remove bottom padding, border and margin from articles */
 .site-content article {
   border-bottom: none;
   margin-bottom: 0;
@@ -191,18 +196,27 @@ img.header-image {
     .search .documents-list .document .document-meta,
     .post-type-archive-document .documents-list .document .document-meta {
       margin-left: 25px;
-      color: gray;
+      color: #888;
       font-size: 14px; }
+      .search .documents-list .document .document-meta .event-date::before,
       .search .documents-list .document .document-meta .presenter::before,
       .search .documents-list .document .document-meta .company::before,
+      .post-type-archive-document .documents-list .document .document-meta .event-date::before,
       .post-type-archive-document .documents-list .document .document-meta .presenter::before,
       .post-type-archive-document .documents-list .document .document-meta .company::before {
         font-family: "dashicons";
         position: relative;
         top: 2px;
         right: 1px; }
+      .search .documents-list .document .document-meta .event-date,
+      .post-type-archive-document .documents-list .document .document-meta .event-date {
+        font-size: 13px; }
+      .search .documents-list .document .document-meta .event-date::before,
+      .post-type-archive-document .documents-list .document .document-meta .event-date::before {
+        content: "\f469"; }
       .search .documents-list .document .document-meta .presenter::before,
       .post-type-archive-document .documents-list .document .document-meta .presenter::before {
+        margin-left: 3px;
         content: "\f338"; }
       .search .documents-list .document .document-meta .company::before,
       .post-type-archive-document .documents-list .document .document-meta .company::before {
@@ -210,31 +224,32 @@ img.header-image {
         content: "\f227"; }
 
 /*** FOOTER ***/
-#colophon {
-  margin-top: 2rem;
-  padding: 0; }
-  #colophon article {
-    margin: 2rem 0; }
-    #colophon article header {
-      margin: 0 0 .5rem 0; }
+footer[role="contentinfo"] {
+  max-width: none;
+  color: gray; }
+  footer[role="contentinfo"] article {
+    margin-bottom: 24px;
+    margin-bottom: 1.714285714rem; }
+    footer[role="contentinfo"] article header {
+      margin-bottom: .5rem; }
     @media screen and (min-width: 600px) {
-      #colophon article.contact {
+      footer[role="contentinfo"] article:nth-child(1) {
         float: left;
         width: 23.041666667%;
         margin-right: 5%; }
-      #colophon article.other-networks {
+      footer[role="contentinfo"] article:nth-child(2) {
         float: left;
         width: 40.91677%;
         margin-right: 5%; }
-      #colophon article.managed-by {
+      footer[role="contentinfo"] article:nth-child(3) {
         float: right;
         width: 26.041666667%; } }
-  #colophon .site-info {
+  footer[role="contentinfo"] .site-info {
     clear: both;
+    padding-top: 24px;
+    padding-top: 1.714285714rem;
     border-top: 1px solid #ededed;
-    padding: 1em 0;
     text-align: center;
-    color: gray;
     font-size: small; }
 
 /*# sourceMappingURL=style.css.map */

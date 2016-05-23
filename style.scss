@@ -10,13 +10,17 @@
 $text-color: #444;
 $blue: #103b8c;
 
-/* Make the font size bigger */
+$page-width: 1120px;
+$base-font-size: 16px;
+$page-width-rem: 70rem; // $page-width / $base-font-size;
+
 html {
 	font-size: 100%;
 }
 
-h2 {
-	font-size: 18px;
+.site {
+	max-width: $page-width;
+	max-width: $page-width-rem;
 }
 
 a,
