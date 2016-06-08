@@ -11,7 +11,12 @@
 			<?php otm_taxonomies_select( 'document' ); ?>
 			<input type="submit" value="Filter">
 		</form>
-		<?php get_search_form(); ?>
+		<?php
+			global $wp_query;
+			if ( $wp_query->max_num_pages > 1 ) {
+				get_search_form();
+			}
+		?>
 
 		<div class="documents-list">
 			<?php
