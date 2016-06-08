@@ -22,7 +22,10 @@ function otm_taxonomy_select( $taxonomy ) {
 function otm_taxonomies_select( $object ) {
 	$taxonomies = get_object_taxonomies( $object, 'objects' );
 	foreach ( $taxonomies as $taxonomy ) {
-		otm_taxonomy_select( $taxonomy );
+		$has_terms = !empty(get_terms( array( 'taxonomy' => $taxonomy->name, 'hide_empty' => true, 'number' => 1) ));
+		if ( $has_terms ) {
+			otm_taxonomy_select( $taxonomy );
+		}
 	}
 }
 
