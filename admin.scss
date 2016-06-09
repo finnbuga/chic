@@ -91,11 +91,11 @@
 
 .edit-php {
   /* Hide stuff */
-   .subsubsub,        /* Role filters */
-   .bulkactions,      /* Bulk Actions */
-   #filter-by-date,   /* Filter by Date */
-   .check-column,     /* Checkboxes */
-   .row-actions {     /* Row actions */
+  .subsubsub, /* Role filters */
+  .bulkactions, /* Bulk Actions */
+  #filter-by-date, /* Filter by Date */
+  .check-column, /* Checkboxes */
+  .row-actions { /* Row actions */
     display: none;
   }
 
