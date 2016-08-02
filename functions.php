@@ -57,3 +57,20 @@ function otm_set_default_options( $query ) {
 	update_option( 'uploads_use_yearmonth_folders', false );
 }
 
+/**
+ * Remove / add sidebars
+ */
+add_action( 'widgets_init', 'otm_manage_sidebars', 11 );
+function otm_manage_sidebars(){
+	unregister_sidebar( 'sidebar-2' );
+	unregister_sidebar( 'sidebar-3' );
+	register_sidebar( array(
+		'name' => __( 'Front Page Header', 'otm' ),
+		'id' => 'front',
+		'description' => __( 'Appears on Front Page', 'twentytwelve' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+}
