@@ -92,6 +92,56 @@ article.post-password-required input[type=submit],
   margin: 0 0 .5rem 0;
   font-size: 18px; }
 
+/* Front Page Slider */
+.front-widget .metaslider {
+  margin-top: 1.5rem; }
+  .front-widget .metaslider .flexslider {
+    margin: 0; }
+  .front-widget .metaslider .caption {
+    font-size: 25px;
+    padding: .7em 1em;
+    line-height: 1em; }
+
+/* Side Slider */
+#secondary .metaslider .flex-direction-nav {
+  display: none; }
+#secondary .metaslider img {
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }
+#secondary .metaslider .caption-wrap {
+  background: transparent;
+  text-align: center;
+  color: #FE3409;
+  opacity: 1;
+  bottom: 45px;
+  font-size: 40px; }
+  @media screen and (min-width: 800px) {
+    #secondary .metaslider .caption-wrap {
+      bottom: 60px;
+      font-size: 50px; } }
+  @media screen and (min-width: 950px) {
+    #secondary .metaslider .caption-wrap {
+      bottom: 70px;
+      font-size: 55px; } }
+  @media screen and (min-width: 1100px) {
+    #secondary .metaslider .caption-wrap {
+      bottom: 85px;
+      font-size: 60px; } }
+#secondary .metaslider p {
+  line-height: 1em;
+  font-size: 17px; }
+  @media screen and (min-width: 800px) {
+    #secondary .metaslider p {
+      font-size: 21px; } }
+  @media screen and (min-width: 950px) {
+    #secondary .metaslider p {
+      font-size: 25px; } }
+  @media screen and (min-width: 1100px) {
+    #secondary .metaslider p {
+      font-size: 30px; } }
+
 /*** LOGIN FORM ***/
 #user {
   text-align: center; }
