@@ -225,3 +225,31 @@
     }
   }
 }
+
+/*** META SLIDER ***/
+
+.toplevel_page_metaslider {
+  .nav-tab-wrapper,
+  .slide .tabs,
+  #metaslider_configuration .inside,
+  #metaslider_usage,
+  #metaslider_social,
+  .delete-slider {
+    display: none;
+  }
+  #metaslider_configuration {
+    background-color: transparent;
+    border: none;
+    -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 0 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.75);
+    #ms-preview {
+      display: none;
+    }
+  }
+  #poststuff #metaslider_configuration .configuration {
+    padding: 0;
+    float: none;
+    overflow: hidden;
+  }
+}
