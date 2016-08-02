@@ -42,7 +42,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Add 'Home' link
-	$admin_bar->add_menu( array(
+	$admin_bar->add_node( array(
 		'id'    => 'home',
 		'title' => 'Home',
 		'href'  => get_home_url(),
@@ -54,7 +54,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Add 'Users' link
-	$admin_bar->add_menu( array(
+	$admin_bar->add_node( array(
 		'id'    => 'users',
 		'title' => 'Users',
 		'href'  => admin_url( 'users.php' ),
@@ -65,14 +65,14 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	if ( $edit = $admin_bar->get_node( 'edit' ) ) {
 		$admin_bar->remove_node( 'edit' );
 		$edit->meta = array( 'class' => 'manager' );
-		$admin_bar->add_menu( $edit );
+		$admin_bar->add_node( $edit );
 	}
 
 	// Reorder 'View' link at the end
 	if ( $view = $admin_bar->get_node( 'view' ) ) {
 		$admin_bar->remove_node( 'view' );
 		$view->meta = array( 'class' => 'manager' );
-		$admin_bar->add_menu( $view );
+		$admin_bar->add_node( $view );
 	}
 
 	// Remove 'Edit' link on the Documents archive page
@@ -82,7 +82,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 
 	// Add 'Edit Documents' link on the Documents archive page
 	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
-		$admin_bar->add_menu( array(
+		$admin_bar->add_node( array(
 			'id'    => 'edit_documents',
 			'title' => 'Edit Documents',
 			'href'  => admin_url( 'edit.php?post_type=document' ),
@@ -92,7 +92,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 
 	// Add 'View Documents' link on the All Documents page and the Edit Document pages
 	if( 'document' === $typenow && ('edit.php' === $pagenow || 'post.php' === $pagenow || 'post-new.php' === $pagenow )) {
-		$admin_bar->add_menu( array(
+		$admin_bar->add_node( array(
 			'id'    => 'view_documents',
 			'title' => 'View Documents',
 			'href'  => home_url( '/documents/' ),
