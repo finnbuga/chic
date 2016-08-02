@@ -47,3 +47,13 @@ function otm_restrict_search_to_documents($query) {
 	return $query;
 }
 
+/**
+ * Set default options
+ */
+add_action( 'init', 'otm_set_default_options' );
+//add_action( 'after_switch_theme', 'otm_set_default_options' );
+function otm_set_default_options( $query ) {
+	update_option( 'default_comment_status', 'closed' );
+	update_option( 'uploads_use_yearmonth_folders', false );
+}
+
