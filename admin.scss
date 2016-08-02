@@ -29,6 +29,14 @@
     content: "\f319";
     top: 2px;
   }
+  &#wp-admin-bar-imageslides a::before {
+    content: "\f128";
+    top: 2px;
+  }
+  &#wp-admin-bar-textslides a::before {
+    content: "\f123";
+    top: 2px;
+  }
   &#wp-admin-bar-users a::before {
     content: "\f338";
     top: 2px;

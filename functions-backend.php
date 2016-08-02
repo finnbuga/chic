@@ -61,6 +61,24 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 		'meta'  => array( 'class' => 'manager' ),
 	) );
 
+	if ( is_active_widget( false, false, 'metaslider_widget' ) ) {
+		// Add 'Image Slides' link
+		$admin_bar->add_node( array(
+			'id'    => 'imageslides',
+			'title' => 'Image Slides',
+			'href'  => admin_url( 'admin.php?page=metaslider&id=18817' ),
+			'meta'  => array( 'class' => 'manager' ),
+		) );
+
+		// Add 'Text Slides' link
+		$admin_bar->add_node( array(
+			'id'    => 'textslides',
+			'title' => 'Text Slides',
+			'href'  => admin_url( 'admin.php?page=metaslider&id=18820' ),
+			'meta'  => array( 'class' => 'manager' ),
+		) );
+	}
+
 	// Reorder 'Edit' link at the end
 	if ( $edit = $admin_bar->get_node( 'edit' ) ) {
 		$admin_bar->remove_node( 'edit' );
