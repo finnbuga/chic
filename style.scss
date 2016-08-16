@@ -80,6 +80,10 @@ a,
 			padding: 3px 30px 3px 0;
 		}
 	}
+
+	img {
+		box-shadow: none;
+	}
 }
 
 /* Form fields, general styles first */
@@ -415,5 +419,4 @@ footer[role="contentinfo"] {
 		text-align: center;
 		font-size: small;
 	}
-
 }

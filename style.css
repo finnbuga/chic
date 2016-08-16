@@ -51,6 +51,8 @@ a,
   .entry-content table td {
     border: none;
     padding: 3px 30px 3px 0; }
+.entry-content img {
+  box-shadow: none; }
 
 /* Form fields, general styles first */
 input {
