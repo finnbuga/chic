@@ -16,30 +16,30 @@ html {
 a,
 .entry-content a,
 .widget-area .widget a {
-  color: #103b8c; }
+  color: #0094b2; }
   a:visited,
   .entry-content a:visited,
   .widget-area .widget a:visited {
-    color: #103b8c; }
+    color: #0094b2; }
 
 .widget-area .textwidget ul {
   list-style: disc inside; }
   .widget-area .textwidget ul li {
     margin-left: 0; }
 
-.site-header h1 {
+.site-header .site-title {
   clear: none;
   font-family: Arial Black;
   letter-spacing: -5px;
   font-weight: bold;
   font-size: 43px; }
-  .site-header h1 a {
-    color: #FE3409; }
-    .site-header h1 a:hover {
-      color: #fe5e3c; }
-.site-header h2 {
+  .site-header .site-title a {
+    color: #9A1E00; }
+    .site-header .site-title a:hover {
+      color: #cd2800; }
+.site-header .site-description {
   margin-top: -20px;
-  color: #103b8c; }
+  color: #0094b2; }
 
 .entry-content table {
   width: auto;
@@ -181,7 +181,7 @@ article.post-password-required input[type=submit],
     #user .user-links .profile::before,
     #user .user-links .logout::before {
       font-family: "dashicons";
-      color: #646f83;
+      color: #60858d;
       font-size: 17px;
       margin-right: 1px;
       position: relative;

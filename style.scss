@@ -8,8 +8,11 @@
 */
 
 $text-color: #444;
-$blue: #103b8c;
+$blue: #0094b2;
 $red: #FE3409;
+
+$title-color: #9A1E00;
+$description-color: $blue;
 
 $page-width: 1120px;
 $base-font-size: 16px;
@@ -42,8 +45,7 @@ a,
 }
 
 .site-header {
-	// Site title
-	h1 {
+	.site-title {
 		clear: none;
 		font-family: Arial Black;
 		letter-spacing: -5px;
@@ -51,17 +53,16 @@ a,
 		font-size: 43px;
 
 		a {
-			color: #FE3409;
+			color: $title-color;
 			&:hover {
-				color: lighten(#FE3409, 10);
+				color: lighten($title-color, 10);
 			}
 		}
 	}
 
-	// Tagline
-	h2 {
+	.site-description {
 		margin-top: -20px;
-		color: $blue;
+		color: $description-color;
 	}
 }
 
