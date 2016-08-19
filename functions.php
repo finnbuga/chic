@@ -50,11 +50,122 @@ function otm_restrict_search_to_documents($query) {
 /**
  * Set default options
  */
-add_action( 'init', 'otm_set_default_options' );
-//add_action( 'after_switch_theme', 'otm_set_default_options' );
+add_action( 'after_switch_theme', 'otm_set_default_options' );
 function otm_set_default_options( $query ) {
-	update_option( 'default_comment_status', 'closed' );
+	// WP Core
 	update_option( 'uploads_use_yearmonth_folders', false );
+
+	// Theme My Login plugin
+	update_option( 'theme_my_login', array(
+		'enable_css'     => true,
+		'login_type'     => 'default',
+		'active_modules' => array(
+			'custom-redirection/custom-redirection.php',
+			'security/security.php',
+			'themed-profiles/themed-profiles.php',
+		),
+		'version'        => '6.4.5',
+	) );
+	update_option( 'theme_my_login_redirection', array (
+		'administrator' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+		'editor' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+		'author' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+		'contributor' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+		'subscriber' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+		'manager' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+		'member' =>
+			array (
+				'login_type' => 'referer',
+				'login_url' => '',
+				'logout_type' => 'referer',
+				'logout_url' => '',
+			),
+	) );
+	update_option( 'theme_my_login_security', array(
+		'private_site'  => false,
+		'private_login' => true,
+		'failed_login'  =>
+			array(
+				'threshold'               => 5,
+				'threshold_duration'      => 1,
+				'threshold_duration_unit' => 'hour',
+				'lockout_duration'        => 24,
+				'lockout_duration_unit'   => 'hour',
+			),
+	) );
+	update_option( 'theme_my_login_themed_profiles', array(
+		'administrator' =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => false,
+			),
+		'editor'        =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => false,
+			),
+		'author'        =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => true,
+			),
+		'contributor'   =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => true,
+			),
+		'subscriber'    =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => true,
+			),
+		'manager'       =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => false,
+			),
+		'member'        =>
+			array(
+				'theme_profile'  => true,
+				'restrict_admin' => true,
+			),
+	) );
 }
 
 /**
@@ -93,3 +204,4 @@ function otm_unregister_default_widgets() {
 	unregister_widget( 'WP_Widget_Tag_Cloud' );
 	unregister_widget( 'WP_Nav_Menu_Widget' );
 }
+
