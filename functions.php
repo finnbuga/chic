@@ -4,6 +4,17 @@ include_once 'functions-backend.php';
 include_once 'functions-helpers.php';
 
 /**
+ * Add logo support
+ */
+add_action( 'after_setup_theme', 'otm_add_logo_support' );
+function otm_add_logo_support() {
+	add_theme_support( 'custom-logo', array(
+		'height'     => 32,
+		'flex-width' => true,
+	) );
+}
+
+/**
  * Add stylesheets and scripts
  */
 add_action( 'wp_enqueue_scripts', 'otm_enqueue_styles_and_scripts' );
