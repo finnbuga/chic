@@ -41,6 +41,9 @@ a,
   margin-top: -20px;
   color: #0094b2; }
 
+.entry-header .entry-title {
+  font-weight: bold; }
+
 .entry-content table {
   width: auto;
   color: inherit;
@@ -49,10 +52,10 @@ a,
     border-bottom: 1px solid gray;
     color: #444; }
   .entry-content table td {
-    border: none;
     padding: 3px 30px 3px 0; }
 .entry-content img {
-  box-shadow: none; }
+  box-shadow: none;
+  border-radius: 0; }
 
 /* Form fields, general styles first */
 input {

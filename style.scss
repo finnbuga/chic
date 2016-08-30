@@ -66,6 +66,10 @@ a,
 	}
 }
 
+.entry-header .entry-title {
+	font-weight: bold;
+}
+
 .entry-content {
 	table {
 		width: auto;
@@ -77,13 +81,13 @@ a,
 			color: $text-color;
 		}
 		td {
-			border: none;
 			padding: 3px 30px 3px 0;
 		}
 	}
 
 	img {
 		box-shadow: none;
+		border-radius: 0;
 	}
 }
 
