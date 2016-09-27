@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Delete unneeded roles
+ */
+add_action( 'after_switch_theme', 'lfr_delete_roles' );
+function lfr_delete_roles() {
+	remove_role( 'editor' );
+	remove_role( 'author' );
+	remove_role( 'contributor' );
+	remove_role( 'subscriber' );
+}
+
+/**
  * Add admin stylesheet
  */
 add_action( 'admin_enqueue_scripts', 'otm_admin_css' );
@@ -16,16 +27,8 @@ function otm_admin_css() {
  */
 add_filter( 'editable_roles', 'otm_cleanup_roles_list' );
 function otm_cleanup_roles_list( $all_roles ) {
-	if ( current_user_can( 'manager' ) && ! current_user_can( 'administrator' ) ) {
+	if ( ! current_user_can( 'administrator' ) ) {
 		unset($all_roles['administrator']);
-		unset($all_roles['editor']);
-		unset($all_roles['contributor']);
-		unset($all_roles['author']);
-		unset($all_roles['subscriber']);
-
-		$member = $all_roles['member'];
-		unset($all_roles['member']);
-		$all_roles['member'] = $member;
 	}
 	return $all_roles;
 }
