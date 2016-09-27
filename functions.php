@@ -88,42 +88,22 @@ function otm_set_default_options( $query ) {
 				'lockout_duration_unit'   => 'hour',
 			),
 	) );
+	$admin_allowed = array(
+		'theme_profile'  => true,
+		'restrict_admin' => false,
+	);
+	$admin_restricted = array(
+		'theme_profile'  => true,
+		'restrict_admin' => true,
+	);
 	update_option( 'theme_my_login_themed_profiles', array(
-		'administrator' =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => false,
-			),
-		'editor'        =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => false,
-			),
-		'author'        =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => true,
-			),
-		'contributor'   =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => true,
-			),
-		'subscriber'    =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => true,
-			),
-		'manager'       =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => false,
-			),
-		'member'        =>
-			array(
-				'theme_profile'  => true,
-				'restrict_admin' => true,
-			),
+		'administrator' => $admin_allowed,
+		'editor'        => $admin_allowed,
+		'author'        => $admin_restricted,
+		'contributor'   => $admin_restricted,
+		'subscriber'    => $admin_restricted,
+		'manager'       => $admin_allowed,
+		'member'        => $admin_restricted,
 	) );
 }
 
