@@ -71,63 +71,11 @@ function otm_set_default_options( $query ) {
 		'enable_css'     => true,
 		'login_type'     => 'default',
 		'active_modules' => array(
-			'custom-redirection/custom-redirection.php',
 			'security/security.php',
 			'themed-profiles/themed-profiles.php',
 		),
 		'version'        => '6.4.5',
-	) );
-	update_option( 'theme_my_login_redirection', array (
-		'administrator' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-		'editor' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-		'author' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-		'contributor' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-		'subscriber' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-		'manager' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-		'member' =>
-			array (
-				'login_type' => 'referer',
-				'login_url' => '',
-				'logout_type' => 'referer',
-				'logout_url' => '',
-			),
-	) );
+	);
 	update_option( 'theme_my_login_security', array(
 		'private_site'  => false,
 		'private_login' => true,
