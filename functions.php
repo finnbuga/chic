@@ -59,6 +59,22 @@ function otm_restrict_search_to_documents($query) {
 }
 
 /**
+ * Set default options for Theme My Login
+ */
+add_filter( 'tml_default_options', 'otm_set_default_options_for_tml');
+function otm_set_default_options_for_tml() {
+	return array(
+		'enable_css'     => true,
+		'login_type'     => 'default',
+		'active_modules' => array(
+			'security/security.php',
+			'themed-profiles/themed-profiles.php',
+		),
+	);
+}
+
+
+/**
  * Set default options
  */
 add_action( 'after_switch_theme', 'otm_set_default_options' );
@@ -66,16 +82,6 @@ function otm_set_default_options( $query ) {
 	// WP Core
 	update_option( 'uploads_use_yearmonth_folders', false );
 
-	// Theme My Login plugin
-	update_option( 'theme_my_login', array(
-		'enable_css'     => true,
-		'login_type'     => 'default',
-		'active_modules' => array(
-			'security/security.php',
-			'themed-profiles/themed-profiles.php',
-		),
-		'version'        => '6.4.5',
-	);
 	update_option( 'theme_my_login_security', array(
 		'private_site'  => false,
 		'private_login' => true,
