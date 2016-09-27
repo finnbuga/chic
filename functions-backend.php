@@ -12,38 +12,73 @@ function lfr_delete_roles() {
 }
 
 /**
+ * Add PDF filter on the Media page
+ */
+add_filter( 'post_mime_types', 'otm_add_pdf_filter' );
+function otm_add_pdf_filter( $post_mime_types ) {
+	$post_mime_types['application/pdf'] = array(
+		__( 'PDF' ),
+		__( 'Manage PDFs' ),
+		_n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' )
+	);
+
+	return $post_mime_types;
+}
+
+/**
+ * Set default hidden columns
+ *
+ * Hide Date
+ */
+add_filter( 'default_hidden_columns', 'otm_set_default_hidden_columns', 10, 2 );
+function otm_set_default_hidden_columns( $hidden, $screen ) {
+	return array_unique( array_merge( $hidden, array( 'date' ) ) );
+}
+
+/**
+ * Set default hidden meta boxes
+ *
+ * Hide Features Image and Page Attributes
+ */
+add_filter( 'default_hidden_meta_boxes', 'otm_set_default_hidden_meta_boxes', 10, 2 );
+function otm_set_default_hidden_meta_boxes( $hidden, $screen ) {
+	return array_unique( array_merge( $hidden, array( 'postimagediv', 'pageparentdiv' ) ) );
+}
+
+/**
+ * Cleanup the backend for non-admins
+ */
+add_action( 'init', 'cleanup_admin' );
+function cleanup_admin() {
+	if ( ! current_user_can( 'administrator' ) ) {
+		add_action( 'admin_enqueue_scripts', 'otm_add_admin_css' );
+		add_action( 'wp_enqueue_scripts', 'otm_add_admin_css' );
+		add_filter( 'editable_roles', 'otm_cleanup_roles_list' );
+		add_action( 'admin_bar_menu', 'otm_customise_toolbar', 100 );
+	}
+}
+
+/**
  * Add admin stylesheet
  */
-add_action( 'admin_enqueue_scripts', 'otm_admin_css' );
-add_action( 'wp_enqueue_scripts', 'otm_admin_css' );
-function otm_admin_css() {
-	if ( ! current_user_can( 'administrator' ) ) {
-		wp_enqueue_style( 'otm-admin', get_stylesheet_directory_uri() . '/admin.css' );
-	}
+function otm_add_admin_css() {
+	wp_enqueue_style( 'otm-admin', get_stylesheet_directory_uri() . '/admin.css' );
 }
 
 /**
  * Cleanup roles list
  */
-add_filter( 'editable_roles', 'otm_cleanup_roles_list' );
 function otm_cleanup_roles_list( $all_roles ) {
-	if ( ! current_user_can( 'administrator' ) ) {
-		unset( $all_roles['administrator'] );
-	}
+	unset( $all_roles['administrator'] );
 
 	return $all_roles;
 }
 
 /**
- * Edit toolbar items
+ * Customise toolbar
  */
-add_action( 'admin_bar_menu', 'otm_edit_toolbar', 100 );
-function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
+function otm_customise_toolbar( WP_Admin_Bar $admin_bar ) {
 	global $pagenow, $typenow;
-
-	if ( current_user_can( 'administrator' ) ) {
-		return;
-	}
 
 	// Add 'Home' link
 	$admin_bar->add_node( array(
@@ -126,38 +161,4 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 			$admin_bar->remove_node( 'view' );
 		}
 	}
-}
-
-/**
- * Set default hidden meta boxes
- *
- * Hide Features Image and Page Attributes
- */
-add_filter( 'default_hidden_meta_boxes', 'otm_set_default_hidden_meta_boxes', 10, 2 );
-function otm_set_default_hidden_meta_boxes( $hidden, $screen ) {
-	return array_unique( array_merge( $hidden, array( 'postimagediv', 'pageparentdiv' ) ) );
-}
-
-/**
- * Set default hidden columns
- *
- * Hide Date
- */
-add_filter( 'default_hidden_columns', 'otm_set_default_hidden_columns', 10, 2 );
-function otm_set_default_hidden_columns( $hidden, $screen ) {
-	return array_unique( array_merge( $hidden, array( 'date' ) ) );
-}
-
-/**
- * Add PDF filter on the Media page
- */
-add_filter( 'post_mime_types', 'otm_add_pdf_filter' );
-function otm_add_pdf_filter( $post_mime_types ) {
-	$post_mime_types['application/pdf'] = array(
-		__( 'PDF' ),
-		__( 'Manage PDFs' ),
-		_n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' )
-	);
-
-	return $post_mime_types;
 }
