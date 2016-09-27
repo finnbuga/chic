@@ -22,8 +22,11 @@ function otm_enqueue_styles_and_scripts() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'dashicons' );
 	wp_enqueue_script( 'otm-script', get_stylesheet_directory_uri() . '/script.js', array(), '1.0.0', true );
-	wp_enqueue_style( 'selectric-style', get_stylesheet_directory_uri() . '/bower_components/jquery-selectric/public/selectric.css' );
-	wp_enqueue_script( 'selectric-script', get_stylesheet_directory_uri() . '/bower_components/jquery-selectric/public/jquery.selectric.min.js', array(), '1.0.0', true );
+	wp_enqueue_style( 'selectric-style',
+		get_stylesheet_directory_uri() . '/bower_components/jquery-selectric/public/selectric.css' );
+	wp_enqueue_script( 'selectric-script',
+		get_stylesheet_directory_uri() . '/bower_components/jquery-selectric/public/jquery.selectric.min.js',
+		array(), '1.0.0', true );
 }
 
 /**
@@ -41,8 +44,9 @@ add_action( 'pre_get_posts', 'otm_display_30_documents_per_page', 1 );
 function otm_display_30_documents_per_page( $query ) {
 	global $pagenow;
 
-	if ( is_post_type_archive('document') && 'edit.php' != $pagenow || is_search()) {
+	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow || is_search() ) {
 		$query->set( 'posts_per_page', 30 );
+
 		return;
 	}
 }
@@ -50,18 +54,19 @@ function otm_display_30_documents_per_page( $query ) {
 /**
  * Restrict search to documents
  */
-add_filter('pre_get_posts','otm_restrict_search_to_documents');
-function otm_restrict_search_to_documents($query) {
-	if ($query->is_search && !is_admin()) {
-		$query->set( 'post_type', array('document') );
+add_filter( 'pre_get_posts', 'otm_restrict_search_to_documents' );
+function otm_restrict_search_to_documents( $query ) {
+	if ( $query->is_search && ! is_admin() ) {
+		$query->set( 'post_type', array( 'document' ) );
 	}
+
 	return $query;
 }
 
 /**
  * Set default options for Theme My Login
  */
-add_filter( 'tml_default_options', 'otm_set_default_options_for_tml');
+add_filter( 'tml_default_options', 'otm_set_default_options_for_tml' );
 function otm_set_default_options_for_tml() {
 	return array(
 		'enable_css'     => true,
@@ -82,6 +87,7 @@ function otm_set_default_options( $query ) {
 	// WP Core
 	update_option( 'uploads_use_yearmonth_folders', false );
 
+	// Theme my Login
 	update_option( 'theme_my_login_security', array(
 		'private_site'  => false,
 		'private_login' => true,
@@ -94,22 +100,18 @@ function otm_set_default_options( $query ) {
 				'lockout_duration_unit'   => 'hour',
 			),
 	) );
-	$admin_allowed = array(
+	$backend_and_frontend_profile = array(
 		'theme_profile'  => true,
 		'restrict_admin' => false,
 	);
-	$admin_restricted = array(
+	$only_frontend_profile        = array(
 		'theme_profile'  => true,
 		'restrict_admin' => true,
 	);
 	update_option( 'theme_my_login_themed_profiles', array(
-		'administrator' => $admin_allowed,
-		'editor'        => $admin_allowed,
-		'author'        => $admin_restricted,
-		'contributor'   => $admin_restricted,
-		'subscriber'    => $admin_restricted,
-		'manager'       => $admin_allowed,
-		'member'        => $admin_restricted,
+		'administrator' => $backend_and_frontend_profile,
+		'manager'       => $backend_and_frontend_profile,
+		'member'        => $only_frontend_profile,
 	) );
 }
 
@@ -117,17 +119,17 @@ function otm_set_default_options( $query ) {
  * Remove / add sidebars
  */
 add_action( 'widgets_init', 'otm_manage_sidebars', 11 );
-function otm_manage_sidebars(){
+function otm_manage_sidebars() {
 	unregister_sidebar( 'sidebar-2' );
 	unregister_sidebar( 'sidebar-3' );
 	register_sidebar( array(
-		'name' => __( 'Front Page Header', 'otm' ),
-		'id' => 'front',
-		'description' => __( 'Appears on Front Page', 'twentytwelve' ),
+		'name'          => __( 'Front Page Header', 'otm' ),
+		'id'            => 'front',
+		'description'   => __( 'Appears on Front Page', 'twentytwelve' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 
