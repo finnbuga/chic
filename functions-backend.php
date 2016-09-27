@@ -28,8 +28,9 @@ function otm_admin_css() {
 add_filter( 'editable_roles', 'otm_cleanup_roles_list' );
 function otm_cleanup_roles_list( $all_roles ) {
 	if ( ! current_user_can( 'administrator' ) ) {
-		unset($all_roles['administrator']);
+		unset( $all_roles['administrator'] );
 	}
+
 	return $all_roles;
 }
 
@@ -39,7 +40,7 @@ function otm_cleanup_roles_list( $all_roles ) {
 add_action( 'admin_bar_menu', 'otm_edit_toolbar', 100 );
 function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	global $pagenow, $typenow;
-	
+
 	if ( current_user_can( 'administrator' ) ) {
 		return;
 	}
@@ -97,12 +98,12 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Remove 'Edit' link on the Documents archive page
-	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
+	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow ) {
 		$admin_bar->remove_node( 'edit' );
 	}
 
 	// Add 'Edit Documents' link on the Documents archive page
-	if ( is_post_type_archive('document') && 'edit.php' != $pagenow ) {
+	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow ) {
 		$admin_bar->add_node( array(
 			'id'    => 'edit_documents',
 			'title' => 'Edit Documents',
@@ -112,7 +113,7 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Add 'View Documents' link on the All Documents page and the Edit Document pages
-	if( 'document' === $typenow && ('edit.php' === $pagenow || 'post.php' === $pagenow || 'post-new.php' === $pagenow )) {
+	if ( 'document' === $typenow && ( 'edit.php' === $pagenow || 'post.php' === $pagenow || 'post-new.php' === $pagenow ) ) {
 		$admin_bar->add_node( array(
 			'id'    => 'view_documents',
 			'title' => 'View Documents',
@@ -129,24 +130,22 @@ function otm_edit_toolbar( WP_Admin_Bar $admin_bar ) {
 
 /**
  * Set default hidden meta boxes
+ *
+ * Hide Features Image and Page Attributes
  */
 add_filter( 'default_hidden_meta_boxes', 'otm_set_default_hidden_meta_boxes', 10, 2 );
 function otm_set_default_hidden_meta_boxes( $hidden, $screen ) {
-	if ( current_user_can( 'manager' ) && ! current_user_can( 'administrator' ) ) {
-		$hidden = array_unique( array_merge( $hidden, array( 'tagsdiv-post_tag', 'tagsdiv', 'postimagediv', 'formatdiv', 'pageparentdiv', '') ) );
-	}
-	return $hidden;
+	return array_unique( array_merge( $hidden, array( 'postimagediv', 'pageparentdiv' ) ) );
 }
 
 /**
  * Set default hidden columns
+ *
+ * Hide Date
  */
 add_filter( 'default_hidden_columns', 'otm_set_default_hidden_columns', 10, 2 );
 function otm_set_default_hidden_columns( $hidden, $screen ) {
-	if ( current_user_can( 'manager' ) && ! current_user_can( 'administrator' ) ) {
-		$hidden = array_unique( array_merge( $hidden, array( 'author', 'tags', 'comments', 'date', 'posts' ) ) );
-	}
-	return $hidden;
+	return array_unique( array_merge( $hidden, array( 'date' ) ) );
 }
 
 /**
@@ -154,6 +153,11 @@ function otm_set_default_hidden_columns( $hidden, $screen ) {
  */
 add_filter( 'post_mime_types', 'otm_add_pdf_filter' );
 function otm_add_pdf_filter( $post_mime_types ) {
-	$post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
+	$post_mime_types['application/pdf'] = array(
+		__( 'PDF' ),
+		__( 'Manage PDFs' ),
+		_n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' )
+	);
+
 	return $post_mime_types;
 }
