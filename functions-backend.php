@@ -1,15 +1,7 @@
 <?php
-
-/**
- * Delete unneeded roles
+/*
+ * Cleanup Backend
  */
-add_action( 'after_switch_theme', 'lfr_delete_roles' );
-function lfr_delete_roles() {
-	remove_role( 'editor' );
-	remove_role( 'author' );
-	remove_role( 'contributor' );
-	remove_role( 'subscriber' );
-}
 
 /**
  * Add PDF filter on the Media page
@@ -43,6 +35,25 @@ function otm_set_default_hidden_columns( $hidden, $screen ) {
 add_filter( 'default_hidden_meta_boxes', 'otm_set_default_hidden_meta_boxes', 10, 2 );
 function otm_set_default_hidden_meta_boxes( $hidden, $screen ) {
 	return array_unique( array_merge( $hidden, array( 'postimagediv', 'pageparentdiv' ) ) );
+}
+
+/**
+ * Cleanup the widgets list
+ */
+add_action( 'widgets_init', 'otm_unregister_default_widgets', 11 );
+function otm_unregister_default_widgets() {
+	unregister_widget( 'WP_Widget_Pages' );
+	unregister_widget( 'WP_Widget_Calendar' );
+	unregister_widget( 'WP_Widget_Archives' );
+	unregister_widget( 'WP_Widget_Links' );
+	unregister_widget( 'WP_Widget_Meta' );
+	unregister_widget( 'WP_Widget_Search' );
+	unregister_widget( 'WP_Widget_Categories' );
+	unregister_widget( 'WP_Widget_Recent_Posts' );
+	unregister_widget( 'WP_Widget_Recent_Comments' );
+	unregister_widget( 'WP_Widget_RSS' );
+	unregister_widget( 'WP_Widget_Tag_Cloud' );
+	unregister_widget( 'WP_Nav_Menu_Widget' );
 }
 
 /**
