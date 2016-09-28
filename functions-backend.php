@@ -103,32 +103,22 @@ function otm_customise_toolbar( WP_Admin_Bar $admin_bar ) {
 		'meta'  => array( 'class' => 'manager' ),
 	) );
 
-	if ( ! current_user_can( 'manager' ) ) {
-		return;
-	}
-
 	// Add 'Users' link
-	$admin_bar->add_node( array(
-		'id'    => 'users',
-		'title' => 'Users',
-		'href'  => admin_url( 'users.php' ),
-		'meta'  => array( 'class' => 'manager' ),
-	) );
-
-	if ( is_active_widget( false, false, 'metaslider_widget' ) ) {
-		// Add 'Image Slides' link
+	if ( current_user_can( 'list_users' ) ) {
 		$admin_bar->add_node( array(
-			'id'    => 'imageslides',
-			'title' => 'Image Slides',
-			'href'  => admin_url( 'admin.php?page=metaslider&id=18817' ),
+			'id'    => 'users',
+			'title' => 'Users',
+			'href'  => admin_url( 'users.php' ),
 			'meta'  => array( 'class' => 'manager' ),
 		) );
+	}
 
-		// Add 'Text Slides' link
+	// Add 'Sliders' link
+	if ( current_user_can('edit_others_posts') ) {
 		$admin_bar->add_node( array(
-			'id'    => 'textslides',
-			'title' => 'Text Slides',
-			'href'  => admin_url( 'admin.php?page=metaslider&id=18820' ),
+			'id'    => 'sliders',
+			'title' => 'Sliders',
+			'href'  => admin_url( 'admin.php?page=metaslider' ),
 			'meta'  => array( 'class' => 'manager' ),
 		) );
 	}
@@ -147,13 +137,13 @@ function otm_customise_toolbar( WP_Admin_Bar $admin_bar ) {
 		$admin_bar->add_node( $view );
 	}
 
-	// Remove 'Edit' link on the Documents archive page
+	// Remove 'Edit' (term) link on the Documents archive page
 	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow ) {
 		$admin_bar->remove_node( 'edit' );
 	}
 
 	// Add 'Edit Documents' link on the Documents archive page
-	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow ) {
+	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow && current_user_can('edit_others_posts') ) {
 		$admin_bar->add_node( array(
 			'id'    => 'edit_documents',
 			'title' => 'Edit Documents',

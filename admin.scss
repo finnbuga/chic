@@ -29,12 +29,8 @@
     content: "\f319";
     top: 2px;
   }
-  &#wp-admin-bar-imageslides a::before {
+  &#wp-admin-bar-sliders a::before {
     content: "\f128";
-    top: 2px;
-  }
-  &#wp-admin-bar-textslides a::before {
-    content: "\f123";
     top: 2px;
   }
   &#wp-admin-bar-users a::before {
@@ -229,7 +225,7 @@
 /*** META SLIDER ***/
 
 .toplevel_page_metaslider {
-  .nav-tab-wrapper,
+  #create_new_tab,
   .slide .tabs,
   #metaslider_configuration .inside,
   #metaslider_usage,
