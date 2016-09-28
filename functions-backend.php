@@ -81,6 +81,10 @@ function otm_add_admin_css() {
  */
 function otm_cleanup_roles_list( $all_roles ) {
 	unset( $all_roles['administrator'] );
+	unset( $all_roles['editor'] );
+	unset( $all_roles['author'] );
+	unset( $all_roles['contributor'] );
+	unset( $all_roles['subscriber'] );
 
 	return $all_roles;
 }
