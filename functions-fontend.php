@@ -22,6 +22,14 @@ function otm_enqueue_styles_and_scripts() {
 }
 
 /**
+ * Disable admin bar for most users
+ */
+add_filter( 'show_admin_bar', 'otm_disable_admin_bar_for_members' );
+function otm_disable_admin_bar_for_members() {
+	return current_user_can( 'edit_others_posts' ) ? true : false;
+}
+
+/**
  * Display 30 documents per page
  */
 add_action( 'pre_get_posts', 'otm_display_30_documents_per_page', 1 );
