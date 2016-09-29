@@ -114,7 +114,7 @@ function otm_customise_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Add 'Sliders' link
-	if ( current_user_can('edit_others_posts') ) {
+	if ( current_user_can( 'edit_others_posts' ) ) {
 		$admin_bar->add_node( array(
 			'id'    => 'sliders',
 			'title' => 'Sliders',
@@ -143,7 +143,7 @@ function otm_customise_toolbar( WP_Admin_Bar $admin_bar ) {
 	}
 
 	// Add 'Edit Documents' link on the Documents archive page
-	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow && current_user_can('edit_others_posts') ) {
+	if ( is_post_type_archive( 'document' ) && 'edit.php' != $pagenow && current_user_can( 'edit_others_posts' ) ) {
 		$admin_bar->add_node( array(
 			'id'    => 'edit_documents',
 			'title' => 'Edit Documents',
