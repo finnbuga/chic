@@ -8,11 +8,7 @@
 */
 
 $text-color: #444;
-$blue: #0094b2;
-$red: #FE3409;
-
 $title-color: #9A1E00;
-$description-color: $blue;
 
 $page-width: 1120px;
 $base-font-size: 16px;
@@ -22,19 +18,16 @@ html {
 	font-size: 100%;
 }
 
+.entry-content a:visited {
+	color: #21759b;
+	&:hover {
+		color: #0f3647;
+	}
+}
+
 .site {
 	max-width: $page-width;
 	max-width: $page-width-rem;
-}
-
-a,
-.entry-content a,
-.widget-area .widget a {
-	color: $blue;
-	&:visited {
-		color: $blue;
-		//color: lighten($blue, 10);
-	}
 }
 
 .widget-area .textwidget ul {
@@ -62,7 +55,6 @@ a,
 
 	.site-description {
 		margin-top: -20px;
-		color: $description-color;
 	}
 }
 
@@ -168,7 +160,7 @@ article.post-password-required input[type=submit],
 	.caption-wrap {
 		background: transparent;
 		text-align: center;
-		color: $red;
+		color: #FE3409;
 		opacity: 1;
 
 		// Try to keep the text in the middle (vertically)
@@ -258,7 +250,6 @@ article.post-password-required input[type=submit],
 		.profile::before,
 		.logout::before {
 			font-family: "dashicons";
-			color: mix($blue, gray, 25%);
 			font-size: 17px;
 			margin-right: 1px;
 			position: relative;

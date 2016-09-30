@@ -9,18 +9,14 @@
 html {
   font-size: 100%; }
 
+.entry-content a:visited {
+  color: #21759b; }
+  .entry-content a:visited:hover {
+    color: #0f3647; }
+
 .site {
   max-width: 1120px;
   max-width: 70rem; }
-
-a,
-.entry-content a,
-.widget-area .widget a {
-  color: #0094b2; }
-  a:visited,
-  .entry-content a:visited,
-  .widget-area .widget a:visited {
-    color: #0094b2; }
 
 .widget-area .textwidget ul {
   list-style: disc inside; }
@@ -38,8 +34,7 @@ a,
     .site-header .site-title a:hover {
       color: #cd2800; }
 .site-header .site-description {
-  margin-top: -20px;
-  color: #0094b2; }
+  margin-top: -20px; }
 
 .entry-header .entry-title {
   font-weight: bold; }
@@ -184,7 +179,6 @@ article.post-password-required input[type=submit],
     #user .user-links .profile::before,
     #user .user-links .logout::before {
       font-family: "dashicons";
-      color: #60858d;
       font-size: 17px;
       margin-right: 1px;
       position: relative;
