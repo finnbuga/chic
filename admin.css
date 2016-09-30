@@ -189,7 +189,9 @@
 .toplevel_page_metaslider #metaslider_configuration .inside,
 .toplevel_page_metaslider #metaslider_usage,
 .toplevel_page_metaslider #metaslider_social,
-.toplevel_page_metaslider .delete-slider {
+.toplevel_page_metaslider .delete-slider,
+.toplevel_page_metaslider .url,
+.toplevel_page_metaslider .new_window {
   display: none; }
 .toplevel_page_metaslider #metaslider_configuration {
   background-color: transparent;
