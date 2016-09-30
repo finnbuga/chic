@@ -17,6 +17,13 @@ function otm_add_logo_support() {
 }
 
 /**
+ * Redirect user to homepage on login / logout
+ */
+add_filter( 'login_redirect', create_function( '$url,$query,$user', 'return home_url();' ), 10, 3 );
+add_filter( 'logout_redirect', create_function( '$url,$query,$user', 'return home_url();' ), 10, 3 );
+
+
+/**
  * Add / remove sidebars
 
  * Remove sidebar-2 and sidebar-3. Add new sidebar: Front Page Header.
