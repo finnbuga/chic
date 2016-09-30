@@ -275,6 +275,32 @@ article.post-password-required input[type=submit],
       margin-left: 3px;
       content: "\f227"; }
 
+/*** USER PROFILE PAGE ***/
+#your-profile h3,
+#your-profile tr {
+  display: none; }
+#your-profile .tml-user-login-wrap,
+#your-profile .tml-user-email-wrap,
+#your-profile .user-pass1-wrap,
+#your-profile .user-pass2-wrap,
+#your-profile .pw-weak {
+  display: block; }
+#your-profile .tml-user-login-wrap,
+#your-profile .tml-user-email-wrap,
+#your-profile .user-pass1-wrap,
+#your-profile .tml-submit-wrap {
+  margin-top: 1.5em; }
+#your-profile table {
+  margin-bottom: 0; }
+  #your-profile table th,
+  #your-profile table td {
+    border: none; }
+#your-profile input[type="text"],
+#your-profile input[type="text"] {
+  width: 300px;
+  max-width: 300px;
+  display: block; }
+
 /*** FOOTER ***/
 footer[role="contentinfo"] {
   max-width: none;

@@ -403,6 +403,44 @@ article.post-password-required input[type=submit],
 }
 
 
+/*** USER PROFILE PAGE ***/
+#your-profile {
+	// Hide all fields except for username, email and password
+	h3,
+	tr {
+		display: none;
+	}
+	.tml-user-login-wrap,
+	.tml-user-email-wrap,
+	.user-pass1-wrap,
+	.user-pass2-wrap,
+	.pw-weak {
+		display: block;
+	}
+
+	// Layout
+	.tml-user-login-wrap,
+	.tml-user-email-wrap,
+	.user-pass1-wrap,
+	.tml-submit-wrap {
+		margin-top: 1.5em;
+	}
+	table {
+		margin-bottom: 0;
+		th,
+		td {
+			border: none;
+		}
+	}
+	input[type="text"],
+	input[type="text"] {
+		width: 300px;
+		max-width: 300px;
+		display: block;
+	}
+}
+
+
 /*** FOOTER ***/
 footer[role="contentinfo"] {
 	// Layout
