@@ -67,7 +67,7 @@
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'front' ) && is_front_page() ) : ?>
-			<div class="front-widget">
+			<div id="front-widgets">
 				<?php dynamic_sidebar( 'front' ); ?>
 			</div><!-- .first -->
 		<?php endif; ?>

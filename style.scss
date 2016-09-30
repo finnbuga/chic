@@ -8,61 +8,32 @@
 */
 
 $text-color: #444;
-$title-color: #9A1E00;
 
-$page-width: 1120px;
-$base-font-size: 16px;
-$page-width-rem: 70rem; // $page-width / $base-font-size;
 
+/*** LAYOUT ***/
+.site {
+	max-width: 1120px;
+	max-width: 1120px;
+}
+
+
+/*** GENERAL STYLING - Parent theme overrides ***/
 html {
 	font-size: 100%;
 }
 
-.entry-content a:visited {
-	color: #21759b;
-	&:hover {
-		color: #0f3647;
-	}
-}
-
-.site {
-	max-width: $page-width;
-	max-width: $page-width-rem;
-}
-
-.widget-area .textwidget ul {
-	list-style: disc inside;
-	li {
-		margin-left: 0;
-	}
-}
-
-.site-header {
-	.site-title {
-		clear: none;
-		font-family: Arial Black;
-		letter-spacing: -5px;
-		font-weight: bold;
-		font-size: 43px;
-
-		a {
-			color: $title-color;
-			&:hover {
-				color: lighten($title-color, 10);
-			}
-		}
-	}
-
-	.site-description {
-		margin-top: -20px;
-	}
-}
-
-.entry-header .entry-title {
-	font-weight: bold;
+h1 {
+	font-weight: bold !important;
 }
 
 .entry-content {
+	a:visited {
+		color: #21759b;
+		&:hover {
+			color: #0f3647;
+		}
+	}
+
 	table {
 		width: auto;
 		color: inherit;
@@ -83,7 +54,6 @@ html {
 	}
 }
 
-/* Form fields, general styles first */
 input {
 	font-size: 12px;
 	padding: 10px 1.5em 11px;
@@ -91,7 +61,7 @@ input {
 	border: 1px solid #988;
 }
 
-/* Buttons */
+// Buttons
 .menu-toggle,
 input[type="submit"],
 input[type="button"],
@@ -105,65 +75,105 @@ article.post-password-required input[type=submit],
 	color: #444;
 }
 
-/* Remove bottom padding, border and margin from articles */
-.site-content article {
-	border-bottom: none;
-	margin-bottom: 0;
-	padding-bottom: 0;
+
+/*** HEADER ***/
+.site-header {
+	// Position logo and description
+	.site-title {
+		clear: none;
+	}
+
+	// No extra spacing
+	h1,
+	h3,
+	a {
+		line-height: 1;
+	}
 }
 
-/* Add more space between pagination links */
+
+/*** CONTENT ***/
+.site-content {
+	article {
+		margin-bottom: 0;
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+}
+
+
+/*** PAGINATION ***/
 .pagination .page-numbers {
 	padding: 0 .3em;
 }
 
 
-/*** CLEANUP ***/
-
-/* Hide the "Edit" link at the bottom of articles & pages */
-.entry-meta .edit-link {
-	display: none;
+/*** META ***/
+// Hide the "Edit" link at the bottom of articles & pages
+.entry-meta {
+	.edit-link {
+		display: none;
+	}
 }
 
 
 /*** WIDGETS ***/
-.widget-area .widget h3 {
-	margin: 0 0 .5rem 0;
-	font-size: 18px;
+.widget-area {
+	// Title
+	.widget .widget-title {
+		margin: 0 0 .5rem 0;
+		font-size: 18px;
+	}
+
+	// Lists
+	.textwidget ul {
+		list-style: disc inside;
+		li {
+			margin-left: 0;
+		}
+	}
 }
 
-/* Front Page Slider */
-.front-widget .metaslider {
+
+// Front Page Slider
+#front-widgets .metaslider {
+	// Spacing
 	margin-top: 1.5rem;
 	.flexslider {
 		margin: 0;
 	}
 	.caption {
-		font-size: 25px;
 		padding: .7em 1em;
 		line-height: 1em;
+		font-size: 25px;
 	}
 }
 
-/* Side Slider */
+// Side Slider
 #secondary .metaslider {
-	//box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
+	// Hide < and > (previous / next arrows)
 	.flex-direction-nav {
 		display: none;
 	}
+
+	// Add shadow and rounded corners
 	img {
 		-webkit-border-radius: 1px;
 		-moz-border-radius: 1px;
 		border-radius: 1px;
 		box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 	}
+
+	// Caption style
 	.caption-wrap {
 		background: transparent;
 		text-align: center;
 		color: #FE3409;
 		opacity: 1;
+	}
 
-		// Try to keep the text in the middle (vertically)
+	// Align text in the middle (vertically)
+	.caption-wrap {
 		bottom: 45px;
 		font-size: 40px;
 		@media screen and (min-width: 800px) {
@@ -195,35 +205,44 @@ article.post-password-required input[type=submit],
 }
 
 
-/*** LOGIN FORM ***/
-
+/*** LOGIN FORM / USER LINKS ***/
 #user {
-	text-align: center;
+	// Layout
 	@media screen and (min-width: 600px) {
 		float: right;
 		margin-top: 15px;
 		margin-right: 5px;
 	}
 
-	#loginform p {
-		display: inline-block;
+	text-align: center;
 
+	// Login Form
+	#loginform p {
+		// Layout
+		display: inline-block;
+		label {
+			display: none;
+		}
 		input[type="text"],
 		input[type="password"] {
 			width: 110px;
-			padding: 8px 1.2em;
 		}
 		input[type="submit"] {
 			line-height: 33px;
 		}
 
-		/* Add icons */
-		&.login-password::before,
-		&.login-username::before {
-			font-family: "dashicons";
-			font-size: 23px;
-			vertical-align: middle;
-			margin-right: -5px;
+		// Icons
+		&.login-password,
+		&.login-username {
+			input {
+				padding: 8px 1.2em;
+			}
+			&::before {
+				font-family: "dashicons";
+				margin-right: -5px;
+				vertical-align: middle;
+				font-size: 23px;
+			}
 		}
 		&.login-username::before {
 			content: "\f110";
@@ -231,22 +250,22 @@ article.post-password-required input[type=submit],
 		&.login-password::before {
 			content: "\f160";
 		}
-
-		label {
-			display: none;
-		}
 	}
 
+	// User links
 	.user-links {
-		font-size: 90%;
+		// Layout
+		.profile {
+			margin-right: 4px;
+		}
 
+		// Style
+		font-size: 90%;
 		a {
 			text-decoration: none;
 		}
 
-		.profile {
-			margin-right: 4px;
-		}
+		// Icons
 		.profile::before,
 		.logout::before {
 			font-family: "dashicons";
@@ -268,16 +287,14 @@ article.post-password-required input[type=submit],
 
 
 /*** DOCUMENTS ARCHIVE & SEARCH RESULTS PAGE ***/
-
 .search,
 .post-type-archive-document {
 	.documents-filter {
+		// Layout
 		margin-bottom: 1em;
-
 		input[type=submit] {
 			display: none;
 		}
-
 		@media screen and (min-width: 75rem) {
 			.selectric-wrapper {
 				display: inline-block;
@@ -287,88 +304,99 @@ article.post-password-required input[type=submit],
 				}
 			}
 		}
-
 		.selectric {
-			border: 1px solid #988;
-			background: #f5f5f5;
 			position: relative;
-			border-radius: 2px;
-
 			.label {
 				padding-left: 10px;
 			}
 		}
+
+		// Style
+		.selectric {
+			border: 1px solid #988;
+			background: #f5f5f5;
+			border-radius: 2px;
+		}
 	}
 
 	.documents-list {
+		// Layout
 		margin: 30px 0 20px;
 		min-height: 300px;
-
 		.document {
 			margin: 1.5em 0;
 			border-bottom: none;
 			padding-bottom: 0;
+		}
+		.document-title {
+			margin-bottom: 2px;
+		}
 
-			.document-title {
-				margin-bottom: 2px;
-				font-size: 17px;
-				font-weight: normal;
-
-				a {
-					text-decoration: none;
-					color: $text-color;
-					&:hover {
-						color: black;
-						cursor: pointer;
-					}
-
-					/* Add icons */
-					&::before {
-						margin-top: -4px;
-						float: left;
-						width: 25px;
-
-						font-family: "dashicons";
-						content: "\f497";
-						font-size: 25px;
-					}
-					&:hover::before {
-						content: "\f316";
-					}
+		.document-title {
+			// Style
+			font-size: 17px;
+			font-weight: normal;
+			a {
+				text-decoration: none;
+				color: $text-color;
+				&:hover {
+					color: black;
+					cursor: pointer;
 				}
 			}
 
-			.document-meta {
-				margin-left: 25px;
-				color: #888;
-				font-size: 14px;
+			// Icons
+			a {
+				&::before {
+					margin-top: -4px;
+					float: left;
+					width: 25px;
 
-				> * {
-					margin-right: .5em;
+					font-family: "dashicons";
+					content: "\f497";
+					font-size: 25px;
 				}
+				&:hover::before {
+					content: "\f316";
+				}
+			}
+		}
 
-				.event-date {
-					font-size: 13px;
-				}
-				.event-date::before,
-				.presenter::before,
-				.company::before {
+		.document-meta {
+			// Layout
+			margin-left: 25px;
+			> * {
+				margin-right: .5em;
+			}
+
+			// Style
+			color: #888;
+			font-size: 14px;
+			.event-date {
+				font-size: 13px;
+			}
+
+			// Icons
+			.event-date
+			.presenter,
+			.company {
+				&::before {
 					font-family: "dashicons";
 					position: relative;
 					top: 2px;
 					right: 1px;
 				}
-				.event-date::before {
-					content: "\f469";
-				}
-				.presenter::before {
-					margin-left: 3px;
-					content: "\f338";
-				}
-				.company::before {
-					margin-left: 3px;
-					content: "\f227";
-				}
+			}
+			.event-date::before {
+				content: "\f469";
+			}
+			.presenter::before {
+				margin-left: 3px;
+				content: "\f338";
+			}
+			.company::before {
+				margin-left: 3px;
+				content: "\f227";
 			}
 		}
 	}
@@ -376,11 +404,9 @@ article.post-password-required input[type=submit],
 
 
 /*** FOOTER ***/
-
 footer[role="contentinfo"] {
+	// Layout
 	max-width: none;
-	color: gray;
-
 	article {
 		margin-bottom: 24px;
 		margin-bottom: 1.714285714rem;
@@ -406,11 +432,15 @@ footer[role="contentinfo"] {
 			}
 		}
 	}
-
 	.site-info {
 		clear: both;
 		padding-top: 24px;
 		padding-top: 1.714285714rem;
+	}
+
+	// Style
+	color: gray;
+	.site-info {
 		border-top: 1px solid #ededed;
 		text-align: center;
 		font-size: small;

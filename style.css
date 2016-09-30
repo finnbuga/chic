@@ -6,39 +6,22 @@
  Version:      1.0.0
  Text Domain:  otm
 */
+/*** LAYOUT ***/
+.site {
+  max-width: 1120px;
+  max-width: 1120px; }
+
+/*** GENERAL STYLING - Parent theme overrides ***/
 html {
   font-size: 100%; }
+
+h1 {
+  font-weight: bold !important; }
 
 .entry-content a:visited {
   color: #21759b; }
   .entry-content a:visited:hover {
     color: #0f3647; }
-
-.site {
-  max-width: 1120px;
-  max-width: 70rem; }
-
-.widget-area .textwidget ul {
-  list-style: disc inside; }
-  .widget-area .textwidget ul li {
-    margin-left: 0; }
-
-.site-header .site-title {
-  clear: none;
-  font-family: Arial Black;
-  letter-spacing: -5px;
-  font-weight: bold;
-  font-size: 43px; }
-  .site-header .site-title a {
-    color: #9A1E00; }
-    .site-header .site-title a:hover {
-      color: #cd2800; }
-.site-header .site-description {
-  margin-top: -20px; }
-
-.entry-header .entry-title {
-  font-weight: bold; }
-
 .entry-content table {
   width: auto;
   color: inherit;
@@ -52,14 +35,12 @@ html {
   box-shadow: none;
   border-radius: 0; }
 
-/* Form fields, general styles first */
 input {
   font-size: 12px;
   padding: 10px 1.5em 11px;
   line-height: 1em;
   border: 1px solid #988; }
 
-/* Buttons */
 .menu-toggle,
 input[type="submit"],
 input[type="button"],
@@ -72,37 +53,46 @@ article.post-password-required input[type=submit],
   padding: 0 1.5em;
   color: #444; }
 
-/* Remove bottom padding, border and margin from articles */
+/*** HEADER ***/
+.site-header .site-title {
+  clear: none; }
+.site-header h1,
+.site-header h3,
+.site-header a {
+  line-height: 1; }
+
+/*** CONTENT ***/
 .site-content article {
-  border-bottom: none;
   margin-bottom: 0;
+  border-bottom: none;
   padding-bottom: 0; }
 
-/* Add more space between pagination links */
+/*** PAGINATION ***/
 .pagination .page-numbers {
   padding: 0 .3em; }
 
-/*** CLEANUP ***/
-/* Hide the "Edit" link at the bottom of articles & pages */
+/*** META ***/
 .entry-meta .edit-link {
   display: none; }
 
 /*** WIDGETS ***/
-.widget-area .widget h3 {
+.widget-area .widget .widget-title {
   margin: 0 0 .5rem 0;
   font-size: 18px; }
+.widget-area .textwidget ul {
+  list-style: disc inside; }
+  .widget-area .textwidget ul li {
+    margin-left: 0; }
 
-/* Front Page Slider */
-.front-widget .metaslider {
+#front-widgets .metaslider {
   margin-top: 1.5rem; }
-  .front-widget .metaslider .flexslider {
+  #front-widgets .metaslider .flexslider {
     margin: 0; }
-  .front-widget .metaslider .caption {
-    font-size: 25px;
+  #front-widgets .metaslider .caption {
     padding: .7em 1em;
-    line-height: 1em; }
+    line-height: 1em;
+    font-size: 25px; }
 
-/* Side Slider */
 #secondary .metaslider .flex-direction-nav {
   display: none; }
 #secondary .metaslider img {
@@ -114,7 +104,8 @@ article.post-password-required input[type=submit],
   background: transparent;
   text-align: center;
   color: #FE3409;
-  opacity: 1;
+  opacity: 1; }
+#secondary .metaslider .caption-wrap {
   bottom: 45px;
   font-size: 40px; }
   @media screen and (min-width: 800px) {
@@ -142,7 +133,7 @@ article.post-password-required input[type=submit],
     #secondary .metaslider p {
       font-size: 30px; } }
 
-/*** LOGIN FORM ***/
+/*** LOGIN FORM / USER LINKS ***/
 #user {
   text-align: center; }
   @media screen and (min-width: 600px) {
@@ -151,31 +142,31 @@ article.post-password-required input[type=submit],
       margin-top: 15px;
       margin-right: 5px; } }
   #user #loginform p {
-    display: inline-block;
-    /* Add icons */ }
+    display: inline-block; }
+    #user #loginform p label {
+      display: none; }
     #user #loginform p input[type="text"],
     #user #loginform p input[type="password"] {
-      width: 110px;
-      padding: 8px 1.2em; }
+      width: 110px; }
     #user #loginform p input[type="submit"] {
       line-height: 33px; }
+    #user #loginform p.login-password input, #user #loginform p.login-username input {
+      padding: 8px 1.2em; }
     #user #loginform p.login-password::before, #user #loginform p.login-username::before {
       font-family: "dashicons";
-      font-size: 23px;
+      margin-right: -5px;
       vertical-align: middle;
-      margin-right: -5px; }
+      font-size: 23px; }
     #user #loginform p.login-username::before {
       content: "\f110"; }
     #user #loginform p.login-password::before {
       content: "\f160"; }
-    #user #loginform p label {
-      display: none; }
   #user .user-links {
     font-size: 90%; }
-    #user .user-links a {
-      text-decoration: none; }
     #user .user-links .profile {
       margin-right: 4px; }
+    #user .user-links a {
+      text-decoration: none; }
     #user .user-links .profile::before,
     #user .user-links .logout::before {
       font-family: "dashicons";
@@ -207,13 +198,15 @@ article.post-password-required input[type=submit],
         width: 300px; } }
   .search .documents-filter .selectric,
   .post-type-archive-document .documents-filter .selectric {
-    border: 1px solid #988;
-    background: #f5f5f5;
-    position: relative;
-    border-radius: 2px; }
+    position: relative; }
     .search .documents-filter .selectric .label,
     .post-type-archive-document .documents-filter .selectric .label {
       padding-left: 10px; }
+  .search .documents-filter .selectric,
+  .post-type-archive-document .documents-filter .selectric {
+    border: 1px solid #988;
+    background: #f5f5f5;
+    border-radius: 2px; }
 .search .documents-list,
 .post-type-archive-document .documents-list {
   margin: 30px 0 20px;
@@ -223,63 +216,64 @@ article.post-password-required input[type=submit],
     margin: 1.5em 0;
     border-bottom: none;
     padding-bottom: 0; }
-    .search .documents-list .document .document-title,
-    .post-type-archive-document .documents-list .document .document-title {
-      margin-bottom: 2px;
-      font-size: 17px;
-      font-weight: normal; }
-      .search .documents-list .document .document-title a,
-      .post-type-archive-document .documents-list .document .document-title a {
-        text-decoration: none;
-        color: #444;
-        /* Add icons */ }
-        .search .documents-list .document .document-title a:hover,
-        .post-type-archive-document .documents-list .document .document-title a:hover {
-          color: black;
-          cursor: pointer; }
-        .search .documents-list .document .document-title a::before,
-        .post-type-archive-document .documents-list .document .document-title a::before {
-          margin-top: -4px;
-          float: left;
-          width: 25px;
-          font-family: "dashicons";
-          content: "\f497";
-          font-size: 25px; }
-        .search .documents-list .document .document-title a:hover::before,
-        .post-type-archive-document .documents-list .document .document-title a:hover::before {
-          content: "\f316"; }
-    .search .documents-list .document .document-meta,
-    .post-type-archive-document .documents-list .document .document-meta {
-      margin-left: 25px;
-      color: #888;
-      font-size: 14px; }
-      .search .documents-list .document .document-meta > *,
-      .post-type-archive-document .documents-list .document .document-meta > * {
-        margin-right: .5em; }
-      .search .documents-list .document .document-meta .event-date,
-      .post-type-archive-document .documents-list .document .document-meta .event-date {
-        font-size: 13px; }
-      .search .documents-list .document .document-meta .event-date::before,
-      .search .documents-list .document .document-meta .presenter::before,
-      .search .documents-list .document .document-meta .company::before,
-      .post-type-archive-document .documents-list .document .document-meta .event-date::before,
-      .post-type-archive-document .documents-list .document .document-meta .presenter::before,
-      .post-type-archive-document .documents-list .document .document-meta .company::before {
-        font-family: "dashicons";
-        position: relative;
-        top: 2px;
-        right: 1px; }
-      .search .documents-list .document .document-meta .event-date::before,
-      .post-type-archive-document .documents-list .document .document-meta .event-date::before {
-        content: "\f469"; }
-      .search .documents-list .document .document-meta .presenter::before,
-      .post-type-archive-document .documents-list .document .document-meta .presenter::before {
-        margin-left: 3px;
-        content: "\f338"; }
-      .search .documents-list .document .document-meta .company::before,
-      .post-type-archive-document .documents-list .document .document-meta .company::before {
-        margin-left: 3px;
-        content: "\f227"; }
+  .search .documents-list .document-title,
+  .post-type-archive-document .documents-list .document-title {
+    margin-bottom: 2px; }
+  .search .documents-list .document-title,
+  .post-type-archive-document .documents-list .document-title {
+    font-size: 17px;
+    font-weight: normal; }
+    .search .documents-list .document-title a,
+    .post-type-archive-document .documents-list .document-title a {
+      text-decoration: none;
+      color: #444; }
+      .search .documents-list .document-title a:hover,
+      .post-type-archive-document .documents-list .document-title a:hover {
+        color: black;
+        cursor: pointer; }
+    .search .documents-list .document-title a::before,
+    .post-type-archive-document .documents-list .document-title a::before {
+      margin-top: -4px;
+      float: left;
+      width: 25px;
+      font-family: "dashicons";
+      content: "\f497";
+      font-size: 25px; }
+    .search .documents-list .document-title a:hover::before,
+    .post-type-archive-document .documents-list .document-title a:hover::before {
+      content: "\f316"; }
+  .search .documents-list .document-meta,
+  .post-type-archive-document .documents-list .document-meta {
+    margin-left: 25px;
+    color: #888;
+    font-size: 14px; }
+    .search .documents-list .document-meta > *,
+    .post-type-archive-document .documents-list .document-meta > * {
+      margin-right: .5em; }
+    .search .documents-list .document-meta .event-date,
+    .post-type-archive-document .documents-list .document-meta .event-date {
+      font-size: 13px; }
+    .search .documents-list .document-meta .event-date
+    .presenter::before,
+    .search .documents-list .document-meta .company::before,
+    .post-type-archive-document .documents-list .document-meta .event-date
+    .presenter::before,
+    .post-type-archive-document .documents-list .document-meta .company::before {
+      font-family: "dashicons";
+      position: relative;
+      top: 2px;
+      right: 1px; }
+    .search .documents-list .document-meta .event-date::before,
+    .post-type-archive-document .documents-list .document-meta .event-date::before {
+      content: "\f469"; }
+    .search .documents-list .document-meta .presenter::before,
+    .post-type-archive-document .documents-list .document-meta .presenter::before {
+      margin-left: 3px;
+      content: "\f338"; }
+    .search .documents-list .document-meta .company::before,
+    .post-type-archive-document .documents-list .document-meta .company::before {
+      margin-left: 3px;
+      content: "\f227"; }
 
 /*** FOOTER ***/
 footer[role="contentinfo"] {
@@ -305,7 +299,8 @@ footer[role="contentinfo"] {
   footer[role="contentinfo"] .site-info {
     clear: both;
     padding-top: 24px;
-    padding-top: 1.714285714rem;
+    padding-top: 1.714285714rem; }
+  footer[role="contentinfo"] .site-info {
     border-top: 1px solid #ededed;
     text-align: center;
     font-size: small; }
