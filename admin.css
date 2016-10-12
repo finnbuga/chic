@@ -206,4 +206,8 @@
   float: none;
   overflow: hidden; }
 
+/* Text Editor */
+#wp-content-editor-tools .wp-media-buttons a {
+  display: none; }
+
 /*# sourceMappingURL=admin.css.map */
