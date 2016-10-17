@@ -80,7 +80,7 @@ article.post-password-required input[type=submit],
   margin: 0 0 .5rem 0;
   font-size: 18px; }
 .widget-area .textwidget ul {
-  list-style: disc inside; }
+  list-style: disc; }
   .widget-area .textwidget ul li {
     margin-left: 0; }
 
