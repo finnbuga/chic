@@ -8,7 +8,6 @@
 */
 /*** LAYOUT ***/
 .site {
-  max-width: 1120px;
   max-width: 1120px; }
 
 /*** GENERAL STYLING - Parent theme overrides ***/
@@ -79,10 +78,8 @@ article.post-password-required input[type=submit],
 .widget-area .widget .widget-title {
   margin: 0 0 .5rem 0;
   font-size: 18px; }
-.widget-area .textwidget ul {
-  list-style: disc; }
-  .widget-area .textwidget ul li {
-    margin-left: 0; }
+.widget-area .textwidget li {
+  margin-left: 0; }
 
 #front-widgets .metaslider {
   margin-top: 1.5rem; }

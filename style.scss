@@ -13,7 +13,6 @@ $text-color: #444;
 /*** LAYOUT ***/
 .site {
 	max-width: 1120px;
-	max-width: 1120px;
 }
 
 
@@ -126,11 +125,8 @@ article.post-password-required input[type=submit],
 	}
 
 	// Lists
-	.textwidget ul {
-		list-style: disc;
-		li {
-			margin-left: 0;
-		}
+	.textwidget li {
+		margin-left: 0;
 	}
 }
 
