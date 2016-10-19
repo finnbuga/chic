@@ -248,6 +248,16 @@ article.post-password-required input[type=submit],
 		}
 	}
 
+	// Recover password link
+	#lost-password {
+		display: block;
+		text-align: right;
+		font-size: 80%;
+		margin-top: 10px;
+		margin-right: 85px;
+		display: none;
+	}
+
 	// User links
 	.user-links {
 		// Layout

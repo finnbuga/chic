@@ -158,6 +158,13 @@ article.post-password-required input[type=submit],
       content: "\f110"; }
     #user #loginform p.login-password::before {
       content: "\f160"; }
+  #user #lost-password {
+    display: block;
+    text-align: right;
+    font-size: 80%;
+    margin-top: 10px;
+    margin-right: 85px;
+    display: none; }
   #user .user-links {
     font-size: 90%; }
     #user .user-links .profile {

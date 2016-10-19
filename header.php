@@ -37,6 +37,7 @@
 		<div id="user">
 			<?php if ( ! is_user_logged_in() ) : ?>
 				<?php print wp_login_form( array( 'echo' => 0 ) ); ?>
+				<a id="lost-password" href="<?php echo wp_lostpassword_url(); ?>" title="Lost Password">Lost Password</a>
 			<?php else : ?>
 				<div class="user-links">
 					<span class="welcome">Welcome <?php print otm_get_user_profile_link( 'profile' ); ?></span> |
