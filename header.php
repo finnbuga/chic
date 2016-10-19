@@ -41,7 +41,7 @@
 			<?php else : ?>
 				<div class="user-links">
 					<span class="welcome">Welcome <?php print otm_get_user_profile_link( 'profile' ); ?></span> |
-					<a class="logout" href="<?php echo wp_logout_url( get_permalink() ); ?>">Logout</a>
+					<a class="logout" href="<?php echo wp_logout_url( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ); ?>">Logout</a>
 				</div>
 			<?php endif; ?>
 		</div>
