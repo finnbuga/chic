@@ -250,11 +250,11 @@ article.post-password-required input[type=submit],
     .search .documents-list .document-meta .event-date,
     .post-type-archive-document .documents-list .document-meta .event-date {
       font-size: 13px; }
-    .search .documents-list .document-meta .event-date
-    .presenter::before,
+    .search .documents-list .document-meta .event-date::before,
+    .search .documents-list .document-meta .presenter::before,
     .search .documents-list .document-meta .company::before,
-    .post-type-archive-document .documents-list .document-meta .event-date
-    .presenter::before,
+    .post-type-archive-document .documents-list .document-meta .event-date::before,
+    .post-type-archive-document .documents-list .document-meta .presenter::before,
     .post-type-archive-document .documents-list .document-meta .company::before {
       font-family: "dashicons";
       position: relative;
