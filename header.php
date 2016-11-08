@@ -34,14 +34,15 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
-		<div id="user">
+		<div id="user-menu">
 			<?php if ( ! is_user_logged_in() ) : ?>
-				<?php print wp_login_form( array( 'echo' => 0 ) ); ?>
-				<a id="lost-password" href="<?php echo wp_lostpassword_url(); ?>" title="Lost Password">Lost Password</a>
+				<?php the_widget( 'widget_wpmemwidget', array(
+					'title'       => '',
+					'redirect_to' => '' ) ); ?>
 			<?php else : ?>
 				<div class="user-links">
-					<span class="welcome">Welcome <?php print otm_get_user_profile_link( 'profile' ); ?></span> |
-					<a class="logout" href="<?php echo wp_logout_url( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ); ?>">Logout</a>
+					<span class="welcome">Welcome <a href="your-profile"><?php print wp_get_current_user()->user_login; ?></a></span> |
+					<a class="logout" href="/?a=logout">Logout</a>
 				</div>
 			<?php endif; ?>
 		</div>

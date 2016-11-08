@@ -130,57 +130,70 @@ article.post-password-required input[type=submit],
     #secondary .metaslider p {
       font-size: 30px; } }
 
-/*** LOGIN FORM / USER LINKS ***/
-#user {
+/*** LOGIN FORM / USER MENU ***/
+#user-menu {
   text-align: center; }
   @media screen and (min-width: 600px) {
-    #user {
+    #user-menu {
       float: right;
       margin-top: 15px;
       margin-right: 5px; } }
-  #user #loginform p {
-    display: inline-block; }
-    #user #loginform p label {
-      display: none; }
-    #user #loginform p input[type="text"],
-    #user #loginform p input[type="password"] {
-      width: 110px; }
-    #user #loginform p input[type="submit"] {
-      line-height: 33px; }
-    #user #loginform p.login-password input, #user #loginform p.login-username input {
-      padding: 8px 1.2em; }
-    #user #loginform p.login-password::before, #user #loginform p.login-username::before {
-      font-family: "dashicons";
-      margin-right: -5px;
-      vertical-align: middle;
-      font-size: 23px; }
-    #user #loginform p.login-username::before {
-      content: "\f110"; }
-    #user #loginform p.login-password::before {
-      content: "\f160"; }
-  #user #lost-password {
+  #user-menu #wp-members {
+    font-size: 0; }
+    #user-menu #wp-members form,
+    #user-menu #wp-members .err {
+      font-size: 14px; }
+  #user-menu #wp-members .err {
+    margin-left: 2.5em;
+    border: none;
+    text-align: left;
+    line-height: 1.4em; }
+  #user-menu form label {
+    display: none; }
+  #user-menu form .div_texbox,
+  #user-menu form .button_div {
+    display: inline-block;
+    margin-left: 1em; }
+  #user-menu form input[type="text"],
+  #user-menu form input[type="password"] {
+    width: 110px; }
+  #user-menu form input[type="submit"] {
+    line-height: 33px; }
+  #user-menu form input[type="submit"] {
+    padding: 0 1em; }
+  #user-menu form .div_texbox input {
+    padding: 8px 1.2em; }
+  #user-menu form .div_texbox::before {
+    font-family: "dashicons";
+    vertical-align: middle;
+    font-size: 23px; }
+  #user-menu form .div_texbox:nth-of-type(1)::before {
+    content: "\f110"; }
+  #user-menu form .div_texbox:nth-of-type(2)::before {
+    content: "\f160"; }
+  #user-menu #lost-password {
     display: block;
     text-align: right;
     font-size: 80%;
     margin-top: 10px;
     margin-right: 85px;
     display: none; }
-  #user .user-links {
+  #user-menu .user-links {
     font-size: 90%; }
-    #user .user-links .profile {
+    #user-menu .user-links .profile {
       margin-right: 4px; }
-    #user .user-links a {
+    #user-menu .user-links a {
       text-decoration: none; }
-    #user .user-links .profile::before,
-    #user .user-links .logout::before {
+    #user-menu .user-links .profile::before,
+    #user-menu .user-links .logout::before {
       font-family: "dashicons";
       font-size: 17px;
       margin-right: 1px;
       position: relative;
       top: 3px; }
-    #user .user-links .profile::before {
+    #user-menu .user-links .profile::before {
       content: "\f110"; }
-    #user .user-links .logout::before {
+    #user-menu .user-links .logout::before {
       content: "\f310";
       font-size: 18px;
       top: 4px; }
