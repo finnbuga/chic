@@ -41,7 +41,11 @@
 					'redirect_to' => '' ) ); ?>
 			<?php else : ?>
 				<div class="user-links">
-					<span class="welcome">Welcome <a href="your-profile"><?php print wp_get_current_user()->user_login; ?></a></span> |
+					<?php $profile_url = function_exists('wpmem_profile_url') ? wpmem_profile_url() : ''; ?>
+					<span class="welcome">
+						Welcome <a href="<?php print $profile_url; ?>"><?php print wp_get_current_user()->user_login; ?></a>
+					</span>
+					|
 					<a class="logout" href="/?a=logout">Logout</a>
 				</div>
 			<?php endif; ?>
