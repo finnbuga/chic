@@ -96,3 +96,21 @@ function otm_admin_email( $email ) {
 	// return the result
 	return $email;
 }
+
+/**
+ * Override notifications displayed to users when they registers / reset password / etc.
+ */
+add_filter ('wpmem_dialogs', 'otm_wpmem_dialogs');
+function otm_wpmem_dialogs() {
+	return array (
+		'restricted_msg' => 'This content is restricted to site members.  If you are an existing user, please log in.  New users may register below.',
+		'user' => 'Sorry, that username is taken, please try another.',
+		'email' => 'Sorry, that email address already has an account.<br />Please try another.',
+		'success' => 'Congratulations! Your registration was successful.<br /><br />You may now log in using the password that was emailed to you.',
+		'editsuccess' => 'Your information was updated!',
+		'pwdchangerr' => 'Passwords did not match.<br /><br />Please try again.',
+		'pwdchangesuccess' => 'Password successfully changed!',
+		'pwdreseterr' => 'Either the username or email address do not exist in our records.',
+		'pwdresetsuccess' => 'Password successfully reset!<br /><br />An email containing a new password has been sent to the email address on file for your account.',
+	);
+}
