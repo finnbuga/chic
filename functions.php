@@ -73,3 +73,26 @@ function otm_set_tml_security_default_options( $query ) {
 	$theme_my_login_security['private_login'] = true;
 	update_option( 'theme_my_login_security', $theme_my_login_security);
 }
+
+/**
+ * Override the admin notification email that is sent when a new user registers.
+ *
+ * The default address that is used by the plugin is the address that is set in the WordPress General Settings
+ * (admin menu Settings > General).
+ * This filter can set some other address and can also be used to send to multiple addresses.
+ */
+add_filter( 'wpmem_notify_addr', 'otm_admin_email' );
+function otm_admin_email( $email ) {
+
+	// single email example
+	$email = 'networks@otmconsulting.com';
+
+	// multiple emails example
+	// $email = 'notify1@mydomain.com, notify2@mydomain.com';
+
+	// take the default and append a second address to it example:
+	// $email = $email . ', notify2@mydomain.com';
+
+	// return the result
+	return $email;
+}
