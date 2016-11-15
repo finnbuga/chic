@@ -9,13 +9,6 @@
 function otm_taxonomies_select( $object ) {
 	$taxonomies = get_object_taxonomies( $object, 'objects' );
 
-	// Move Category at the end
-	if (isset($taxonomies['otm_documents_category'])) {
-		$category = $taxonomies['otm_documents_category'];
-		unset ($taxonomies['otm_documents_category']);
-		$taxonomies['otm_documents_category'] = $category;
-	}
-
 	foreach ( $taxonomies as $taxonomy ) {
 		$terms = get_terms( array( 'taxonomy' => $taxonomy->name, 'hide_empty' => true, 'number' => 1 ) );
 		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
