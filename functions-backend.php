@@ -200,3 +200,26 @@ function otm_customise_toolbar( WP_Admin_Bar $admin_bar ) {
 		}
 	}
 }
+
+/**
+ * Move the Event taxonomy meta box from the side column to the main column
+ */
+add_action( 'do_meta_boxes', 'otm_documents_change_event_meta_box_position' );
+function otm_documents_change_event_meta_box_position( $post_type ) {
+	$tax_name = 'event';
+
+	if ( $post_type != 'document' ) {
+		return;
+	}
+
+	remove_meta_box( $tax_name . 'div', $post_type, 'side' );
+
+	$taxonomy = get_taxonomy( $tax_name );
+	if ( ! $taxonomy->show_ui || false === $taxonomy->meta_box_cb ) {
+		return;
+	}
+
+	add_meta_box( $tax_name . 'box', $taxonomy->labels->singular_name, $taxonomy->meta_box_cb, null, 'advanced', 'core',
+		array( 'taxonomy' => $tax_name ) );
+}
+
