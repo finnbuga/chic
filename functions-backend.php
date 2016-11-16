@@ -5,6 +5,8 @@
 
 /**
  * Add Manager and Member roles
+ *
+ * and set default role to Member
  */
 add_action( 'after_switch_theme', 'otm_documents_add_roles' );
 function otm_documents_add_roles() {
@@ -34,14 +36,8 @@ function otm_documents_add_roles() {
 	);
 	//remove_role('member'); // If role exists it will not be overridden
 	add_role( 'member', __( 'Member' ), $member_capabilities );
-}
 
-/**
- * Set default role
- */
-add_action( 'after_switch_theme', 'otm_set_default_role' );
-function otm_set_default_role( $query ) {
-
+	update_option( 'default_role', 'member' );
 }
 
 /**
