@@ -76,26 +76,3 @@ function otm_get_terms_names( $post, $taxonomy ) {
 		return $term->name;
 	}, $terms );
 }
-
-/**
- * Get user profile link
- */
-function otm_get_user_profile_link( $class ) {
-	if ( ! $user_id = get_current_user_id() ) {
-		return 'Visitor';
-	}
-
-	if ( current_user_can( 'read' ) ) {
-		$profile_url = get_edit_profile_url( $user_id );
-	} elseif ( is_multisite() ) {
-		$profile_url = get_dashboard_url( $user_id, 'profile.php' );
-	} else {
-		$profile_url = false;
-	}
-
-	if ( ! $profile_url ) {
-		return wp_get_current_user()->display_name;
-	} else {
-		return '<a class="' . $class . '" href="' . $profile_url . '">' . wp_get_current_user()->display_name . '</a>';
-	}
-}
