@@ -223,3 +223,17 @@ function otm_documents_change_event_meta_box_position( $post_type ) {
 		array( 'taxonomy' => $tax_name ) );
 }
 
+/**
+ * Order Events taxonomy terms by term_id
+ *
+ * so that the last event added will be on the top of the list
+ */
+add_filter( 'get_terms_args', 'otm_documents_reorder_events_by_term_id', 10, 2 );
+function otm_documents_reorder_events_by_term_id( $args, $taxonomies ) {
+	if ( 'event' == $taxonomies[0] ) {
+		$args['orderby'] = 'term_id';
+		$args['order']   = 'DESC';
+	}
+
+	return $args;
+}
